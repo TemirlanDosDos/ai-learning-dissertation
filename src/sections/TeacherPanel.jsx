@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
 
 export default function TeacherPanel() {
   const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -12,7 +12,7 @@ export default function TeacherPanel() {
       intro: `Қысқаша сипаттама`,
     }));
 
-  // 📊 СТАТИСТИКА
+  // 📊 Статистика
   const stats = useMemo(() => {
     if (students.length === 0) {
       return { avg: 0, max: 0 };
@@ -42,7 +42,7 @@ export default function TeacherPanel() {
     <div className="teacher-panel">
       <h1>👨‍🏫 Мұғалім панелі</h1>
 
-      {/* 📊 ОБЩАЯ СТАТИСТИКА */}
+      {/* 📊 Жалпы статистика */}
       <div className="stats-grid">
         <div className="stat-card">
           <h3>👨‍🎓 Оқушылар</h3>
@@ -60,7 +60,7 @@ export default function TeacherPanel() {
         </div>
       </div>
 
-      {/* 👨‍🎓 ПРОГРЕСС ОҚУШЫЛАР */}
+      {/* 👨‍🎓 Прогресс оқушылар */}
       <h2>👨‍🎓 Оқушылардың прогресі</h2>
 
       {students.map(student => {
@@ -73,4 +73,40 @@ export default function TeacherPanel() {
             <p>{percent}%</p>
             <div className="progress-bar">
               <div
-                class
+                className="progress-fill"
+                style={{ width: `${percent}%` }}
+              />
+            </div>
+          </div>
+        );
+      })}
+
+      {/* ✏️ Сабақ атаулары мен сипаттамалары */}
+      <h2 style={{ marginTop: '30px' }}>
+        ✏️ Сабақ атаулары мен қысқаша сипаттамалары
+      </h2>
+
+      {lessons.map(lesson => (
+        <div key={lesson.id} className="lesson-card">
+          <input
+            className="input"
+            value={lesson.title}
+            onChange={e =>
+              updateLesson(lesson.id, 'title', e.target.value)
+            }
+          />
+
+          <textarea
+            className="input"
+            value={lesson.intro}
+            onChange={e =>
+              updateLesson(lesson.id, 'intro', e.target.value)
+            }
+          />
+
+          <small>⚠️ Негізгі оқу материалы өзгермейді</small>
+        </div>
+      ))}
+    </div>
+  );
+}
