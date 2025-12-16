@@ -1,37 +1,46 @@
-export default function LessonStudy({ lesson, lessons, onNext, onGoHome, onCompleteAll }) {
-  const user = JSON.parse(localStorage.getItem('currentUser'));
+import Quiz from "./Quiz";
+import { completeLesson } from "../services/progressService";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase";
 
-  const finishLesson = () => {
-    const key = `completed_${user.username}`;
-    const completed = JSON.parse(localStorage.getItem(key)) || [];
+export default function LessonStudy({
+                                      lesson,
+                                      currentUser,
+                                      onFinishLesson,
+                                      onGoHome,
+                                    }) {
+  if (!lesson) return null;
 
-    if (!completed.includes(lesson.id)) {
-      completed.push(lesson.id);
-      localStorage.setItem(key, JSON.stringify(completed));
+  const finishLesson = async () => {
+    await completeLesson(currentUser, lesson.id);
+
+    // 🔄 обновляем currentUser из Firestore
+    const snap = await getDoc(doc(db, "users", currentUser.uid));
+    if (snap.exists()) {
+      currentUser.completedLessons = snap.data().completedLessons;
+      currentUser.progress = snap.data().progress;
     }
 
-    const percent = Math.round((completed.length / 34) * 100);
-    localStorage.setItem(`progress_${user.username}`, percent);
-
-    const nextLesson = lessons.find(l => l.id === lesson.id + 1);
-
-    if (nextLesson) {
-      onNext(nextLesson);
-    } else {
-      onCompleteAll();
-    }
+    onFinishLesson();
   };
 
   return (
     <div>
       <h1>{lesson.title}</h1>
-      <p>{lesson.content}</p>
 
-      <button className="button" onClick={finishLesson}>
-        Келесі сабақ
-      </button>
+      <p style={{ whiteSpace: "pre-line" }}>
+        {lesson.content}
+      </p>
 
-      <button className="button" onClick={onGoHome}>
+      <hr style={{ margin: "30px 0" }} />
+
+      <Quiz quiz={lesson.quiz} onPassed={finishLesson} />
+
+      <button
+        className="button"
+        style={{ marginTop: 20 }}
+        onClick={onGoHome}
+      >
         Басты бетке қайту
       </button>
     </div>

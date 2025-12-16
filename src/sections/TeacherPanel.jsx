@@ -1,112 +1,104 @@
-import { useMemo } from 'react';
+import { useEffect, useState } from "react";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase";
+import lessonsData from "../data/lessonsData";
+
+const TEACHER_EMAIL = "teacher@university.kz";
+const TOTAL_LESSONS = 34;
 
 export default function TeacherPanel() {
-  const users = JSON.parse(localStorage.getItem('users')) || [];
-  const students = users.filter(u => u.role === 'student');
+  const [students, setStudents] = useState([]);
+  const [openStudentId, setOpenStudentId] = useState(null);
 
-  const lessons =
-    JSON.parse(localStorage.getItem('lessons')) ||
-    Array.from({ length: 34 }, (_, i) => ({
-      id: i + 1,
-      title: `Сабақ ${i + 1}`,
-      intro: `Қысқаша сипаттама`,
-    }));
+  useEffect(() => {
+    const fetchStudents = async () => {
+      const snap = await getDocs(collection(db, "users"));
+      const data = snap.docs
+        .map(doc => ({ id: doc.id, ...doc.data() }))
+        .filter(u => u.role === "student");
 
-  // 📊 Статистика
-  const stats = useMemo(() => {
-    if (students.length === 0) {
-      return { avg: 0, max: 0 };
-    }
+      setStudents(data);
+    };
 
-    const progresses = students.map(
-      s => parseInt(localStorage.getItem(`progress_${s.username}`)) || 0
-    );
-
-    const avg = Math.round(
-      progresses.reduce((a, b) => a + b, 0) / progresses.length
-    );
-
-    const max = Math.max(...progresses);
-
-    return { avg, max };
-  }, [students]);
-
-  const updateLesson = (id, field, value) => {
-    const updated = lessons.map(l =>
-      l.id === id ? { ...l, [field]: value } : l
-    );
-    localStorage.setItem('lessons', JSON.stringify(updated));
-  };
+    fetchStudents();
+  }, []);
 
   return (
     <div className="teacher-panel">
       <h1>👨‍🏫 Мұғалім панелі</h1>
 
-      {/* 📊 Жалпы статистика */}
-      <div className="stats-grid">
-        <div className="stat-card">
-          <h3>👨‍🎓 Оқушылар</h3>
-          <p>{students.length}</p>
-        </div>
+      <h2>👨‍🎓 Студенттер</h2>
 
-        <div className="stat-card">
-          <h3>📈 Орташа прогресс</h3>
-          <p>{stats.avg}%</p>
-        </div>
+      <div className="students-list">
+        {students.map(student => {
+          const completed = student.completedLessons || [];
+          const percent = student.progress || 0;
+          const isOpen = openStudentId === student.id;
 
-        <div className="stat-card">
-          <h3>🏆 Ең жоғары прогресс</h3>
-          <p>{stats.max}%</p>
-        </div>
-      </div>
-
-      {/* 👨‍🎓 Прогресс оқушылар */}
-      <h2>👨‍🎓 Оқушылардың прогресі</h2>
-
-      {students.map(student => {
-        const percent =
-          parseInt(localStorage.getItem(`progress_${student.username}`)) || 0;
-
-        return (
-          <div key={student.username} className="student-card">
-            <strong>{student.username}</strong>
-            <p>{percent}%</p>
-            <div className="progress-bar">
+          return (
+            <div key={student.id} className="student-card">
               <div
-                className="progress-fill"
-                style={{ width: `${percent}%` }}
-              />
+                style={{ cursor: "pointer" }}
+                onClick={() =>
+                  setOpenStudentId(isOpen ? null : student.id)
+                }
+              >
+                <strong>{student.fullName}</strong>
+                <p>{student.email}</p>
+                <p>Прогресс: {percent}%</p>
+
+                <div className="progress-bar">
+                  <div
+                    className="progress-fill"
+                    style={{ width: `${percent}%` }}
+                  />
+                </div>
+
+                <small>
+                  Аяқталған сабақтар:{" "}
+                  {completed.length} / {TOTAL_LESSONS}
+                </small>
+              </div>
+
+              {/* 📚 Детальный прогресс */}
+              {isOpen && (
+                <div style={{ marginTop: 15 }}>
+                  <h4>📚 Сабақтар</h4>
+
+                  {lessonsData.map(lesson => {
+                    const done = completed.includes(lesson.id);
+
+                    return (
+                      <div
+                        key={lesson.id}
+                        style={{
+                          padding: "6px 10px",
+                          marginBottom: 6,
+                          borderRadius: 6,
+                          background: done
+                            ? "#e8f5e9"
+                            : "#f5f5f5",
+                          display: "flex",
+                          justifyContent: "space-between",
+                          alignItems: "center",
+                          fontSize: 14
+                        }}
+                      >
+                        <span>
+                          {lesson.id}. {lesson.title}
+                        </span>
+                        <span>
+                          {done ? "✅" : "❌"}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
             </div>
-          </div>
-        );
-      })}
-
-      {/* ✏️ Сабақ атаулары мен сипаттамалары */}
-      <h2 style={{ marginTop: '30px' }}>
-        ✏️ Сабақ атаулары мен қысқаша сипаттамалары
-      </h2>
-
-      {lessons.map(lesson => (
-        <div key={lesson.id} className="lesson-card">
-          <input
-            className="input"
-            value={lesson.title}
-            onChange={e =>
-              updateLesson(lesson.id, 'title', e.target.value)
-            }
-          />
-
-          <textarea
-            className="input"
-            value={lesson.intro}
-            onChange={e =>
-              updateLesson(lesson.id, 'intro', e.target.value)
-            }
-          />
-
-          <small>⚠️ Негізгі оқу материалы өзгермейді</small>
-        </div>
-      ))}
+          );
+        })}
+      </div>
     </div>
   );
 }

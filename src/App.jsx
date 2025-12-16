@@ -1,26 +1,63 @@
-import { useState } from 'react';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Dashboard from './pages/Dashboard';
+import { useEffect, useState } from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { doc, getDoc } from "firebase/firestore";
+import { auth, db } from "./firebase";
+
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
 
 export default function App() {
-  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('currentUser')));
+  const [userData, setUserData] = useState(null);
   const [showRegister, setShowRegister] = useState(false);
 
-  const logout = () => {
-    localStorage.removeItem('currentUser');
-    setCurrentUser(null);
+  useEffect(() => {
+    const unsub = onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        setUserData(null);
+        return;
+      }
+
+      const snap = await getDoc(doc(db, "users", user.uid));
+
+      if (!snap.exists()) {
+        // 🔒 если документ удалён
+        setUserData(null);
+        return;
+      }
+
+      const data = snap.data();
+
+      // ✅ ЗАЩИТА ОТ УДАЛЁННЫХ ПОЛЕЙ
+      setUserData({
+        uid: user.uid,
+        fullName: data.fullName || "",
+        email: data.email || user.email,
+        role: data.role || "student",
+        completedLessons: data.completedLessons || [],
+        progress: data.progress || 0,
+      });
+    });
+
+    return () => unsub();
+  }, []);
+
+  const logout = async () => {
+    await signOut(auth);
   };
 
-  if (!currentUser) {
+  if (!userData) {
     return showRegister ? (
       <Register onRegister={() => setShowRegister(false)} />
     ) : (
       <div>
-        <Login onLogin={setCurrentUser} />
-        <p style={{ textAlign: 'center', marginTop: '20px' }}>
-          Аккаунт жоқ па?{' '}
-          <button onClick={() => setShowRegister(true)} className="register-button">
+        <Login onLogin={() => {}} />
+        <p style={{ textAlign: "center", marginTop: 20 }}>
+          Аккаунт жоқ па?{" "}
+          <button
+            className="register-button"
+            onClick={() => setShowRegister(true)}
+          >
             Тіркелу
           </button>
         </p>
@@ -28,5 +65,5 @@ export default function App() {
     );
   }
 
-  return <Dashboard currentUser={currentUser} onLogout={logout} />;
+  return <Dashboard currentUser={userData} onLogout={logout} />;
 }

@@ -1,45 +1,74 @@
-// src/pages/Register.jsx
-import { useState } from 'react';
+import { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import { auth, db } from "../firebase";
 
 export default function Register({ onRegister }) {
-  const [aty, setAty] = useState('');
-  const [qupiyaSoz, setQupiyaSoz] = useState('');
-  const [rol, setRol] = useState('student');
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const tirkelu = () => {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    users.push({ username: aty, password: qupiyaSoz, role: rol });
-    localStorage.setItem('users', JSON.stringify(users));
-    alert('Тіркелу сәтті өтті!');
-    onRegister();
+  const register = async () => {
+    if (!fullName.trim()) {
+      alert("Аты-жөніңізді енгізіңіз");
+      return;
+    }
+
+    try {
+      const result = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+
+      const user = result.user;
+
+      // 🔥 создаём пользователя в Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        fullName: fullName.trim(),
+        email: user.email,
+        role: "student",
+        progress: 0,
+        completedLessons: [],
+      });
+
+      alert("Тіркелу сәтті өтті!");
+      onRegister();
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   return (
     <div className="login-container">
       <div className="login-box">
         <h1>Тіркелу</h1>
+
         <input
           className="input"
-          placeholder="Атыңыз"
-          value={aty}
-          onChange={(e) => setAty(e.target.value)}
+          placeholder="Аты-жөніңіз"
+          value={fullName}
+          onChange={e => setFullName(e.target.value)}
         />
+
+        <input
+          className="input"
+          placeholder="Email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        />
+
         <input
           className="input"
           type="password"
           placeholder="Құпия сөз"
-          value={qupiyaSoz}
-          onChange={(e) => setQupiyaSoz(e.target.value)}
+          value={password}
+          onChange={e => setPassword(e.target.value)}
         />
-        <select
-          className="input"
-          value={rol}
-          onChange={(e) => setRol(e.target.value)}
-        >
-          <option value="student">Оқушы</option>
-          <option value="teacher">Мұғалім</option>
-        </select>
-        <button onClick={tirkelu} className="button">Тіркелу</button>
+
+        <button className="button" onClick={register}>
+          Тіркелу
+        </button>
       </div>
     </div>
   );

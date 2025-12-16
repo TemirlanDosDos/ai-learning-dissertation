@@ -1,44 +1,33 @@
-import { useEffect, useState } from 'react';
-
-export default function Profile() {
-  const user = JSON.parse(localStorage.getItem('currentUser'));
-  const [percent, setPercent] = useState(0);
-
-  useEffect(() => {
-    if (user?.role === 'student') {
-      const saved =
-        parseInt(localStorage.getItem(`progress_${user.username}`)) || 0;
-      setPercent(saved);
-    }
-  }, []);
-
-  if (!user) {
+export default function Profile({ currentUser }) {
+  if (!currentUser) {
     return <p>Пайдаланушы табылмады</p>;
   }
+
+  const isTeacher = currentUser.role === "teacher";
 
   return (
     <div className="profile-box">
       <h2>👤 Профиль</h2>
 
       <p>
-        Аты: <strong>{user.username}</strong>
+        Атыңыз: <strong>{currentUser.fullName}</strong>
       </p>
 
       <p>
-        Рөлі: <strong>{user.role === 'teacher' ? 'Мұғалім' : 'Оқушы'}</strong>
+        Рөлі: <strong>{isTeacher ? "Мұғалім" : "Оқушы"}</strong>
       </p>
 
-      {/* Прогресс ТОЛЬКО для ученика */}
-      {user.role === 'student' && (
+      {/* 🔥 Прогресс ТОЛЬКО для ученика и ТОЛЬКО из Firestore */}
+      {!isTeacher && (
         <>
           <p>
-            Оқу барысы: <strong>{percent}%</strong>
+            Оқу барысы: <strong>{currentUser.progress}%</strong>
           </p>
 
           <div className="progress-bar">
             <div
               className="progress-fill"
-              style={{ width: `${percent}%` }}
+              style={{ width: `${currentUser.progress}%` }}
             />
           </div>
         </>

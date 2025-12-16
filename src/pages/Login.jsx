@@ -1,19 +1,21 @@
-// src/pages/Login.jsx
-import { useState } from 'react';
+import { useState } from "react";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase";
 
 export default function Login({ onLogin }) {
-  const [aty, setAty] = useState('');
-  const [qupiyaSoz, setQupiyaSoz] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const kiru = () => {
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(u => u.username === aty && u.password === qupiyaSoz);
-
-    if (user) {
-      localStorage.setItem('currentUser', JSON.stringify(user));
-      onLogin(user);
-    } else {
-      alert('Қате логин немесе құпия сөз!');
+  const login = async () => {
+    try {
+      const result = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      onLogin(result.user);
+    } catch (error) {
+      alert("Қате email немесе құпия сөз");
     }
   };
 
@@ -21,20 +23,25 @@ export default function Login({ onLogin }) {
     <div className="login-container">
       <div className="login-box">
         <h1>Кіру</h1>
+
         <input
           className="input"
-          placeholder="Атыңыз"
-          value={aty}
-          onChange={(e) => setAty(e.target.value)}
+          placeholder="Email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
         />
+
         <input
           className="input"
           type="password"
           placeholder="Құпия сөз"
-          value={qupiyaSoz}
-          onChange={(e) => setQupiyaSoz(e.target.value)}
+          value={password}
+          onChange={e => setPassword(e.target.value)}
         />
-        <button onClick={kiru} className="button">Кіру</button>
+
+        <button className="button" onClick={login}>
+          Кіру
+        </button>
       </div>
     </div>
   );
