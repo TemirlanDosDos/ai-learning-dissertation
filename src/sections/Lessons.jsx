@@ -30,15 +30,6 @@ export default function Lessons() {
     );
   }
 
-  if (mode === 'intro') {
-    return (
-      <LessonIntro
-        lesson={currentLesson}
-        onBack={() => setMode('list')}
-        onMore={() => setMode('study')}
-      />
-    );
-  }
 
   if (mode === 'study') {
     return (
