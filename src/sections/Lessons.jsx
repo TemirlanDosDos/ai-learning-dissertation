@@ -18,22 +18,14 @@ export default function Lessons() {
 
   const [currentLesson, setCurrentLesson] = useState(null);
   const [mode, setMode] = useState('list'); // list | intro | study
+  const [openLessonId, setOpenLessonId] = useState(null);
   const [allCompleted, setAllCompleted] = useState(false);
 
   if (allCompleted) {
     return (
       <div style={{ textAlign: 'center', marginTop: '50px' }}>
         <h1>🎉 Барлық сабақтар аяқталды!</h1>
-        <p>Сіз барлық 34 сабақты аяқтадыңыз.</p>
-        <button
-          className="button"
-          onClick={() => {
-            setAllCompleted(false);
-            setMode('list');
-          }}
-        >
-          Сабақтар тізіміне оралу
-        </button>
+        <p>Сіз 34 сабақтың барлығын аяқтадыңыз.</p>
       </div>
     );
   }
@@ -69,33 +61,35 @@ export default function Lessons() {
 
       {lessons.map(lesson => {
         const isCompleted = completed.includes(lesson.id);
+        const isOpen = openLessonId === lesson.id;
 
         return (
           <div
             key={lesson.id}
-            className="lesson-card"
-            style={{
-              borderLeft: isCompleted
-                ? '6px solid #4caf50'
-                : '6px solid transparent',
-              background: isCompleted ? '#f1f8f4' : '#fff',
-            }}
+            className={`lesson-card ${isCompleted ? 'completed' : ''}`}
           >
-            <h3>
-              {lesson.title} {isCompleted && '✅'}
-            </h3>
-
-            <p>{lesson.intro}</p>
-
             <button
-              className="button"
-              onClick={() => {
-                setCurrentLesson(lesson);
-                setMode('intro');
-              }}
+              className={`accordion ${isOpen ? 'active' : ''}`}
+              onClick={() =>
+                setOpenLessonId(isOpen ? null : lesson.id)
+              }
             >
-              Ашық
+              {lesson.title} {isCompleted && '✅'}
             </button>
+
+            <div className={`panel ${isOpen ? 'open' : ''}`}>
+              <p>{lesson.intro}</p>
+
+              <button
+                className="button"
+                onClick={() => {
+                  setCurrentLesson(lesson);
+                  setMode('intro');
+                }}
+              >
+                Сабақты ашу
+              </button>
+            </div>
           </div>
         );
       })}
