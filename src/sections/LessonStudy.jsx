@@ -28,9 +28,10 @@ export default function LessonStudy({
     <div>
       <h1>{lesson.title}</h1>
 
-      <p style={{ whiteSpace: "pre-line" }}>
-        {lesson.content}
-      </p>
+      <div
+        style={{ whiteSpace: "pre-line" }}
+        dangerouslySetInnerHTML={{ __html: lesson.content }}
+      />
 
       <hr style={{ margin: "30px 0" }} />
 
