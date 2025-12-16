@@ -75,7 +75,7 @@ export default function Lessons() {
                 className="button"
                 onClick={() => {
                   setCurrentLesson(lesson);
-                  setMode('intro');
+                  setMode('study');
                 }}
               >
                 Сабақты ашу
