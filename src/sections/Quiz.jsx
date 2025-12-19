@@ -8,8 +8,6 @@ export default function Quiz({ quiz, onPassed }) {
     (q, i) => answers[i] === q.correctIndex
   ).length;
 
-  const passed = submitted && correctCount === quiz.length;
-
   return (
     <div>
       <h3>🧪 Тест</h3>
@@ -44,27 +42,20 @@ export default function Quiz({ quiz, onPassed }) {
         </button>
       )}
 
-      {submitted && !passed && (
-        <p style={{ color: "red", marginTop: 10 }}>
-          ❌ Барлық сұрақтарға дұрыс жауап беріңіз
+      {submitted && (
+        <p style={{ marginTop: 10 }}>
+          Дұрыс жауаптар: {correctCount} / {quiz.length}
         </p>
       )}
 
-      {passed && (
-        <>
-          <p style={{ color: "green", marginTop: 10 }}>
-            ✅ Барлық жауаптар дұрыс!
-          </p>
-
-          <button
-            className="button"
-            style={{ marginTop: 10 }}
-            onClick={onPassed}
-          >
-            Сабақты аяқтау
-          </button>
-        </>
-      )}
+      {/* ✅ КНОПКА ВСЕГДА ДОСТУПНА */}
+      <button
+        className="button"
+        style={{ marginTop: 15 }}
+        onClick={onPassed}
+      >
+        Сабақты аяқтау
+      </button>
     </div>
   );
 }

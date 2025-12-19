@@ -21,12 +21,15 @@ export default function Dashboard({ currentUser, onLogout }) {
           <Profile currentUser={currentUser} />
         )}
 
-        {activeSection === "lessons" &&
-          (currentUser.role === "teacher" ? (
-            <TeacherPanel currentUser={currentUser} />
-          ) : (
-            <Lessons currentUser={currentUser} />
-          ))}
+        {activeSection === "lessons" && (
+          <Lessons currentUser={currentUser} />
+        )}
+
+        {activeSection === "teacher" &&
+          currentUser.role === "teacher" && (
+            <TeacherPanel />
+          )}
+
 
         {activeSection === "ai" && <AI />}
       </main>

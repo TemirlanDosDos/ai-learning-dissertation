@@ -9,7 +9,14 @@ export function calculateProgress(completedLessons = []) {
   );
 }
 
-export function getLessonStatus(lessonId, completedLessons = []) {
+export function getLessonStatus(
+  lessonId,
+  completedLessons = [],
+  role = "student"
+) {
+  // 👨‍🏫 Учителю всё открыто
+  if (role === "teacher") return "available";
+
   if (completedLessons.includes(lessonId)) return "completed";
 
   const nextLesson =
@@ -21,6 +28,7 @@ export function getLessonStatus(lessonId, completedLessons = []) {
 
   return "locked";
 }
+
 
 export async function completeLesson(user, lessonId) {
   if (!user.completedLessons?.includes(lessonId)) {

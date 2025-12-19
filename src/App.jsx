@@ -23,6 +23,7 @@ export default function App() {
       if (!snap.exists()) {
         // 🔒 если документ удалён
         setUserData(null);
+
         return;
       }
 
@@ -37,6 +38,9 @@ export default function App() {
         completedLessons: data.completedLessons || [],
         progress: data.progress || 0,
       });
+
+      window.currentUserRole = data.role;
+
     });
 
     return () => unsub();

@@ -4,7 +4,7 @@ export default function LessonIntro({ lesson, onBack, onMore }) {
       <h1>{lesson.title}</h1>
       <p>{lesson.intro}</p>
 
-      <button className="button" onClick={onMore}>
+      <button className="lesson-button" onClick={onMore}>
         Толығырақ
       </button>
 

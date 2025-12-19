@@ -14,7 +14,7 @@ export default function Profile({ currentUser }) {
       </p>
 
       <p>
-        Рөлі: <strong>{isTeacher ? "Мұғалім" : "Оқушы"}</strong>
+        Рөлі: <strong>{isTeacher ? "Мұғалім" : "Қолданушы"}</strong>
       </p>
 
       {/* 🔥 Прогресс ТОЛЬКО для ученика и ТОЛЬКО из Firestore */}

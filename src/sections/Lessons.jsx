@@ -46,8 +46,10 @@ export default function Lessons({ currentUser }) {
       {lessons.map((lesson, index) => {
         const status = getLessonStatus(
           lesson.id,
-          currentUser.completedLessons || []
+          currentUser.completedLessons || [],
+          currentUser.role
         );
+
 
         const isOpen = openLessonId === lesson.id;
 
@@ -71,7 +73,7 @@ export default function Lessons({ currentUser }) {
               <p>{lesson.intro}</p>
 
               <button
-                className="button"
+                className="lesson-button"
                 disabled={status === "locked"}
                 onClick={() => setCurrentLessonIndex(index)}
               >

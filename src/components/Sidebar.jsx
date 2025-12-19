@@ -27,6 +27,23 @@ export default function Sidebar({ active, setActive, onLogout }) {
             📚 Сабақтар
           </button>
 
+          {active !== undefined && (
+            <>
+              {/*
+      Кнопка ТОЛЬКО для учителя
+    */}
+              {window.currentUserRole === "teacher" && (
+                <button
+                  className={`menu-btn ${active === 'teacher' ? 'active' : ''}`}
+                  onClick={() => setActive('teacher')}
+                >
+                  👨‍🏫 Мұғалім панелі
+                </button>
+              )}
+            </>
+          )}
+
+
           <button
             className={`menu-btn ${active === 'ai' ? 'active' : ''}`}
             onClick={() => setActive('ai')}
