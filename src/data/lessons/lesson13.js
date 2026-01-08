@@ -39,6 +39,10 @@ const lesson13 = {
         </tr>
     </table>
     
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson13/131.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+    
     <div style="background-color: #e8f4fd; padding: 10px; border-left: 4px solid #2196F3;">
         <strong>Нормализация:</strong> Оптимизатор әртүрлі айнымалылар бойынша тұрақты қадамдар жасауы үшін, кіріс деректерін ортақ шкалаға келтіру (нормализациялау) өте маңызды.
     </div>

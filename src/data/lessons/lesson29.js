@@ -26,10 +26,18 @@ const lesson29 = {
         <li><strong>Интерполяция:</strong> Екі векторды қосатын түзудің бойындағы нүктелерді таңдау.</li>
         <li><strong>Декодтау:</strong> Аралық нүктелерді декодер арқылы өткізіп, жаңа кадрлар жасау.</li>
     </ul>
+    
+    <div class="image-wrapper">
+    <img src="/assets/lessons/lesson29/291.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     <div style="background-color: #f8f9fa; padding: 10px; border-radius: 5px; text-align: center; margin: 10px 0;">
         <strong>Математикасы:</strong><br>
         <code>Вектор_жаңа = (1 - α) * Вектор_А + α * Вектор_В</code>
+    </div>
+    
+    <div class="image-wrapper">
+    <img src="/assets/lessons/lesson29/292.png" alt="" style="width: 50%; height: auto;" />
     </div>
 
     <h4>2.2. Шырмалу (Entanglement) мәселесі</h4>

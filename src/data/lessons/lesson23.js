@@ -51,6 +51,10 @@ const lesson23 = {
         <li><strong>Жоғары дисперсия (Overfitting):</strong> Желі тым күрделі, оқыту деректерін жаттап алады, бірақ жаңа деректерде сәтсіздікке ұшырайды.</li>
     </ul>
 
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson23/231.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <h4>2.3. Keras Tuner-ге кіріспе</h4>
     <p><strong>Keras Tuner</strong> — оңтайлы параметрлерді автоматты түрде іздейтін кітапхана. Ол мынадай негізгі іздеу алгоритмдерін ұсынады: Random Search, Hyperband, BayesianOptimization. Тәжірибеде <strong>Hyperband</strong> алгоритміне басымдық беріледі, себебі ол ресурстарды өте тиімді бөледі.</p>
 

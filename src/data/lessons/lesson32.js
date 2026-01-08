@@ -29,6 +29,14 @@ const lesson32 = {
         <li><strong>Әрекет (A - Action):</strong> Агент жасай алатын қадам (оңға, солға, секіру).</li>
         <li><strong>Сыйақы (R - Reward):</strong> Кері байланыс сигналы (нысанаға тигені үшін +10, құлағаны үшін -1).</li>
     </ul>
+    
+    <div class="image-wrapper">
+    <img src="/assets/lessons/lesson32/321.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
+    <div class="image-wrapper">
+    <img src="/assets/lessons/lesson32/322.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     <h4>2.2. Беллман теңдеуі</h4>
     <p>Агенттің мақсаты — болашақ сыйақылардың жиынтығын максималдайтын <strong>Оңтайлы Саясатты</strong> үйрену. Ол үшін біз әрбір күйдегі әрекет үшін <strong>Q-мәнін</strong> (Quality value) есептейміз.</p>
@@ -37,7 +45,11 @@ const lesson32 = {
         <strong>Беллман теңдеуі:</strong><br>
         <code style="font-size: 1.2rem;">Q(S, A) = R + γ * max(Q(S_next, A_all))</code>
     </div>
-
+    
+    <div class="image-wrapper">
+    <img src="/assets/lessons/lesson32/323.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+    
     <ul>
         <li><strong>R:</strong> Дереу алынатын сыйақы.</li>
         <li><strong>γ (Гамма):</strong> Дисконттау коэффициенті (0.9-0.99). Ол болашақ сыйақының ағымдағы сәттегі құндылығын анықтайды.</li>
@@ -54,6 +66,10 @@ const lesson32 = {
         <li><strong>Exploration (Зерттеу):</strong> ε ықтималдығымен агент жаңа күйлерді ашу үшін кездейсоқ әрекет жасайды.</li>
         <li><strong>Exploitation (Пайдалану):</strong> 1 - ε ықтималдығымен агент ең жоғары Q-мәні бар әрекетті таңдайды.</li>
     </ul>
+
+    <div class="image-wrapper">
+    <img src="/assets/lessons/lesson32/324.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     <h3>3. Түйін</h3>
     <ul>

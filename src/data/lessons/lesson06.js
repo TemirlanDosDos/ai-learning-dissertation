@@ -30,6 +30,10 @@ const lesson06 = {
 
 result = tf.matmul(batch_tensor1, batch_tensor2)</code></pre>
 
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson6/61.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <h4>2.2. Үлестірілген стратегиялар (Multi-GPU)</h4>
     <p>Бірнеше GPU-ы бар серверлерде жұмысты тиімді бөлу үшін <code>MirroredStrategy</code> қолданылады. Ол модельдің көшірмесін әрбір GPU-ға орналастырады, деректерді бөліп береді және есептелген градиенттерді өзара синхрондайды.</p>
 
@@ -45,6 +49,10 @@ with strategy.scope():
         tf.keras.layers.Dense(10)
     ])
     model.compile(optimizer='adam', loss='mse')</code></pre>
+
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson6/62.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     <h4>2.3. Мәліметтер құбырын оңтайландыру (tf.data)</h4>
     <p>Егер GPU деректердің дисктен (HDD/SSD) жүктелуін күтіп бос тұрса, бұл оқытуды баяулататын "кедергі" (bottleneck) болып табылады.</p>

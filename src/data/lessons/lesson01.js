@@ -16,12 +16,9 @@ const lesson01 = {
     <p>Машиналық оқыту Siri мен Alexa сияқты дауыстық көмекшілерден бастап, Tesla-ның автономды көліктеріне дейінгі технологияларды қозғалысқа келтіріп, күнделікті өмірімізге етене еніп кетті. Бұл саланың айтулы жетістіктерінің бірі — DeepMind-тың AlphaGo жобасы.</p>
     <p>Негізінде, AI зерттеулерінің мақсаты — адам интеллектімен бәсекелесе алатын, ойлауға және үйренуге қабілетті машиналар жасау. Бұған қол жеткізу үшін тек код жазу жеткіліксіз; ол үшін арнайы математикалық құралдар мен есептеу қуаты қажет.</p>
 
-formattedContent = formattedContent.replace(
-      "",
-      \`<div class="image-container">
-        <img src="" alt="Stable Diffusion Architecture" style="width:100%; border-radius:8px;" />
-        <p style="text-align:center; font-style:italic;">Stable Diffusion архитектурасының құрылымы</p>
-      </div>\`
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson1/ai-intro.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     );
 
@@ -36,7 +33,7 @@ formattedContent = formattedContent.replace(
     </ul>
 
     <div class="image-wrapper">
-      <img src="/assets/lessons/lesson1/ai-intro.png" alt="" style="width: 50%; height: auto;" />
+      <img src="/assets/lessons/lesson1/gpu.png" alt="" style="width: 50%; height: auto;" />
     </div>
 
     <h4>2.2. Техникалық жабдықтарға қойылатын талаптар</h4>
@@ -48,13 +45,9 @@ formattedContent = formattedContent.replace(
     </ul>
     <blockquote>Ұсыныс: Кем дегенде 16 ГБ VRAM (бейнежад) бар карталар (мысалы, RTX 3080) тиімдірек.</blockquote>
 
-    formattedContent = formattedContent.replace(
-    "",
-    \`
-    <div class="image-container">
-      <img src="" alt="Stable Diffusion Architecture" style="width:100%; border-radius:8px;"/>
-      <p style="text-align:center; font-style:italic;">Stable Diffusion архитектурасының құрылымы</p>
-    </div>\`
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson1/python-stack.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     );
     
@@ -71,25 +64,13 @@ formattedContent = formattedContent.replace(
       <a href="https://www.youtube.com/watch?v=ACc0ZVIlKXI" target="_blank" style="color: #0d6efd; text-decoration: underline;">Видеоны ашу (YouTube)</a>
     </div>
 
-    formattedContent = formattedContent.replace(
-    "",
-    \`
-    <div class="image-container">
-      <img src="" alt="Stable Diffusion Architecture" style="width:100%; border-radius:8px;"/>
-      <p style="text-align:center; font-style:italic;">Stable Diffusion архитектурасының құрылымы</p>
-    </div>\`
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson1/Frame%202.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
-    );
-
-    formattedContent = formattedContent.replace(
-    "",
-    \`
-    <div class="image-container">
-      <img src="" alt="Stable Diffusion Architecture" style="width:100%; border-radius:8px;"/>
-      <p style="text-align:center; font-style:italic;">Stable Diffusion архитектурасының құрылымы</p>
-    </div>\`
-
-    );
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson1/Frame%203.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     <h3>3. Түйін</h3>
     <ul>

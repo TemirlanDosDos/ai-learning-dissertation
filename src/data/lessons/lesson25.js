@@ -49,6 +49,10 @@ xTestFlattened = xTestFlattened / 255.0</code></pre>
     <h4>2.3. Архитектураны құру</h4>
     <p>Біз екі жасырын қабаты бар тізбекті модель құрамыз. Тіпті конволюциялық қабаттарсыз-ақ, терең тығыз желінің көмегімен өте жоғары дәлдікке (~96%) жетуге болады.</p>
 
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson25/251.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>from keras.models import Sequential
 from keras.layers import Dense
 

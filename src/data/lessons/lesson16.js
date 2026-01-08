@@ -28,6 +28,10 @@ const lesson16 = {
         <li><strong>Оқыту vs. Тестілеу:</strong> Dropout тек оқыту кезінде ғана белсенді болады. Болжам жасау кезінде желі барлық нейрондарын қолданады.</li>
     </ul>
 
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson16/161.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>from keras.layers import Dense, Dropout
 
 # 50% dropout коэффициентімен қолдану
@@ -52,8 +56,17 @@ model.add(Dense(10, activation='softmax'))</code></pre>
 
     <ul>
         <li><strong>Max Pooling (MaxPooling2D):</strong> Терезе ішіндегі тек ең жоғары мәнді сақтайды. Ол жиектер сияқты ең айқын белгілерді ерекшелеу үшін тиімді.</li>
+        
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson16/162.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+        
         <li><strong>Average Pooling (AveragePooling2D):</strong> Терезедегі мәндердің орташа мәнін есептейді. Бұл кескінді тегістейді (smooth) және фондық ақпаратты сақтау үшін пайдалы.</li>
     </ul>
+    
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson16/163.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     <h3>3. Түйін</h3>
     <ul>

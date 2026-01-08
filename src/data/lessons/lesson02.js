@@ -28,9 +28,17 @@ const lesson02 = {
       <li><strong>Rank 2:</strong> Матрица (кесте).</li>
       <li><strong>Rank n:</strong> Тензор (көп өлшемді массив).</li>
     </ul>
+    
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson2/tensor-structure.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     <h4>2.2. Негізгі айырмашылықтар: NumPy және TensorFlow</h4>
     <p>Кодта олар ұқсас көрінгенімен, ішкі логикасы мен қолданылуында үлкен айырмашылық бар:</p>
+    
+     <div class="image-wrapper">
+      <img src="/assets/lessons/lesson2/numpy-vs-tf.png" alt="" style="width: 50%; height: auto;" />
+    </div>
     
     <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
         <p><strong>🔒 Неліктен тензорлар өзгермейді (Immutable)?</strong></p>

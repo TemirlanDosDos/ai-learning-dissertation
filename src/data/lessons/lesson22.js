@@ -32,6 +32,10 @@ const lesson22 = {
         <li><strong>NLP әдістері:</strong> Сөйлемдегі сөздерді синонимдермен алмастыру немесе кері аударма (back-translation) жасау.</li>
     </ul>
 
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson22/221.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <h4>2.2. Трансферттік оқыту (Transfer Learning)</h4>
     <p>Трансферттік оқыту — бір тапсырмада (мысалы, миллиондаған жануарлар фотосында) жинақталған "тәжірибені" алып, оны жаңа тапсырмаға пайдалану.</p>
     

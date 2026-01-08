@@ -26,6 +26,10 @@ const lesson20 = {
         <li><strong>Жасырын күй (ht):</strong> Бұл «жұмыс жады» немесе ұяшықтың нақты сол сәттегі шығысы. Ол ағымдағы болжам үшін және келесі қадамға контекст ретінде қолданылады.</li>
     </ul>
 
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson20/201.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <h4>2.2. Қақпа механизмдері (Gating Mechanisms)</h4>
     <p>Ақпарат ағынын үш негізгі қақпа («сүзгі») басқарады:</p>
     

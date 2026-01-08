@@ -15,6 +15,10 @@ const lesson08 = {
     <p>Бүгін біз оқыту процесінің "жүрегіне" — <strong>Нейронға</strong> тоқталамыз. Жалғыз нейрон математикалық тұрғыдан қарапайым болғанымен, оларды үлкен желілерге біріктіру компьютерлерге күрделі мәселелерді шешуге мүмкіндік береді.</p>
     <p>Алайда, нейрон активациялық функциясыз пайдасыз — онсыз ең заманауи желінің өзі қарапайым сызықтық регрессиядан (түзу сызықтан) аспайды.</p>
 
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson8/81.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <h3>2. Негізгі мазмұн</h3>
 
     <h4>2.1. Жасанды нейронның анатомиясы</h4>
@@ -31,6 +35,10 @@ const lesson08 = {
     <div style="background-color: #f8f9fa; padding: 10px; border-radius: 5px; text-align: center;">
         <strong>Математикалық формула:</strong><br>
         <code>y = f(w * x + b)</code>
+    </div>
+
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson8/82.png" alt="" style="width: 50%; height: auto;" />
     </div>
 
     <h4>2.2. Бейсызықтықтың (Nonlinearity) қажеттілігі</h4>

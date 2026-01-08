@@ -48,6 +48,10 @@ const lesson14 = {
         <li><strong>Артық оқыту белгісі:</strong> Оқыту шығыны азая береді, бірақ валидациялық шығын арта бастайды (екі сызық алшақтайды).</li>
     </ul>
 
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson14/141.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <h4>2.3. TensorBoard-қа кіріспе</h4>
     <p>TensorBoard — TensorFlow құрамына кіретін, модельдің жұмысын нақты уақыт режимінде бақылауға арналған визуализация құралы.</p>
     

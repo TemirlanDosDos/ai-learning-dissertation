@@ -38,6 +38,10 @@ const lesson18 = {
         <li><strong>Себебі:</strong> Бұл мәселе Transposed Convolutions қабаттарынан туындайды. Егер ядро (kernel) өлшемі адымға (stride) қалдықсыз бөлінбесе, конволюция операциясындағы қабаттасу біркелкі болмайды.</li>
     </ul>
 
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson18/181.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <h4>2.3. Резидуальды қабаттар (Skip Connections)</h4>
     <p>Желілер тереңдеген сайын, градиенттің жоғалуы мәселесіне байланысты оларды оқыту қиындай түседі. Резидуальды қабат (ResNet блогы) бұны <strong>Skip Connections</strong> (өтпелі байланыстар) арқылы шешеді.</p>
     
@@ -49,6 +53,10 @@ const lesson18 = {
         </li>
         <li><strong>Артықшылығы:</strong> Бұл байланыстар градиенттің өтуі үшін "жоғары жылдамдықты магистраль" жасайды, бұл 100-ден астам қабаты бар терең желілерді оқытуға мүмкіндік береді.</li>
     </ul>
+
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson18/182.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     <h3>3. Түйін</h3>
     <ul>

@@ -20,7 +20,9 @@ const lesson04 = {
     <h4>2.1. Қайта пішіндеу және Тегістеу (Reshape & Flatten)</h4>
     <p><code>tf.reshape</code> — тензордағы деректерді өзгертпей, тек олардың орналасу тәртібі мен құрылымын өзгертеді.</p>
     
-    
+     <div class="image-wrapper">
+      <img src="/assets/lessons/lesson4/reshape-flatten.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     <p><strong>Flattening (Тегістеу):</strong> Суреттерді қарапайым (Dense) желілерге бергенде, оларды 1D векторға айналдыру керек. Ол үшін <code>-1</code> параметрін қолдану өте ыңғайлы. TensorFlow элементтердің жалпы санына қарай өлшемді өзі есептейді.</p>
 
@@ -39,6 +41,10 @@ flattened = tf.reshape(image, [-1])</code></pre>
         <li><code>tf.squeeze</code>: Көлемі 1-ге тең қажетсіз өлшемдерді (артық «қабықшаларды») алып тастайды.</li>
     </ul>
 
+     <div class="image-wrapper">
+      <img src="/assets/lessons/lesson4/expand-sqeeze.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <h4>2.3. Арналар және Транспонирлеу (Transpose)</h4>
     <p>Кескіндермен жұмыс істегенде «Арна» (Channel — R, G, B) өлшемі қай жерде тұруы керектігі маңызды:</p>
     <ul>
@@ -52,6 +58,10 @@ flattened = tf.reshape(image, [-1])</code></pre>
     
     <div style="background-color: #ffe6e6; padding: 15px; border-radius: 5px; border-left: 5px solid #dc3545;">
         <strong>⚠️ Назар аударыңыз:</strong> Мұнда <code>reshape</code> қолдануға болмайды! Себебі reshape пиксельдердің мағыналық ретін бұзып жібереді, ал transpose осьтердің орнын ауыстырады.
+    </div>
+
+     <div class="image-wrapper">
+      <img src="/assets/lessons/lesson4/transpose.png" alt="" style="width: 50%; height: auto;" />
     </div>
 
     <h3>3. Түйін</h3>
@@ -77,7 +87,11 @@ flattened = tf.reshape(image, [-1])</code></pre>
             </p>
         </details>
     </div>
-  `,
+  
+     <div class="image-wrapper">
+      <img src="/assets/lessons/lesson4/task-dims.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+`,
   quiz: [
     {
       question: "tf.reshape қолданудың басты шарты қандай?",

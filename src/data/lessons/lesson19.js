@@ -25,6 +25,10 @@ const lesson19 = {
         <li><strong>Семантикалық мағына:</strong> Оқыту кезінде желі мағынасы ұқсас сөздерді (мысалы, «Патша» және «Патшайым») векторлық кеңістікте бір-біріне жақын орналастыруды үйренеді. Бұл машинаға сөздердің контекстік ұқсастығын түсінуге көмектеседі.</li>
     </ul>
 
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson19/191.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <p><strong>Keras-та іске асыру:</strong></p>
     <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>from keras.models import Sequential
 from keras.layers import Embedding
@@ -56,6 +60,10 @@ model.add(Embedding(input_dim=1000, output_dim=64, input_length=10))</code></pre
         <li><strong>Градиенттердің жоғалуы (Vanishing Gradients):</strong> Қателік сигналы уақыт бойынша артқа жылжыған сайын кішірейіп кетеді. Желі сөйлемнің басын «ұмытып» қалады.</li>
         <li><strong>Градиенттердің жарылуы (Exploding Gradients):</strong> Градиенттер жинақталып, тым үлкен мәнге айналады (NaN қатесі), бұл модельді тұрақсыз етеді.</li>
     </ul>
+
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson19/192.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     <h3>3. Түйін</h3>
     <ul>

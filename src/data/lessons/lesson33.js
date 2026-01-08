@@ -24,7 +24,9 @@ const lesson33 = {
         <li><strong>Frame Stacking (Кадрларды стектеу):</strong> Жалғыз кадр статикалық болып келеді. Агентке нысандардың жылдамдығы мен бағытын түсінуге көмектесу үшін біз соңғы 4 кадрды біріктіріп, бір кіріс ретінде береміз.</li>
     </ul>
 
-    
+    <div class="image-wrapper">
+    <img src="/assets/lessons/lesson33/331.png" alt="" style="width: 50%; height: auto;" />
+    </div>    
 
     <h4>2.2. Агент: Deep Q-Network (DQN)</h4>
     <p>Біз әрбір мүмкін әрекет үшін Q-мәнін (күтілетін болашақ сыйақы) жуықтау үшін Конволюциялық нейрондық желіні (CNN) қолданамыз.</p>
@@ -35,7 +37,11 @@ const lesson33 = {
         <li><strong>Кіріс:</strong> Стектелген кадрлар (пішіні: 84×84×4).</li>
         <li><strong>Архитектура:</strong> Бірнеше конволюциялық қабат пиксельдерден нысандардың (планеталықтар, оқтар) орналасуын анықтайды. Соңғы тығыз (dense) қабат әрбір әрекет үшін Q-мәнін шығарады.</li>
     </ul>
-
+    
+    <div class="image-wrapper">
+    <img src="/assets/lessons/lesson33/332.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+    
     <h4>2.3. Зерттеу (Exploration) мен Пайдалану (Exploitation)</h4>
     <p>Агент <strong>Epsilon-Greedy</strong> саясатын қолданады:</p>
     <ul>
