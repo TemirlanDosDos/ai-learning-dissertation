@@ -1,0 +1,161 @@
+const lesson10 = {
+    id: 10,
+    title: "10-сабақ: Инициализациялау стратегиялары",
+    description: "Симметрия мәселесі, Нөлдік инициализацияның зияны және Glorot (Xavier) vs He инициализацияларын таңдау.",
+    content: `
+    <h3>Оқу мақсаттары:</h3>
+    <ul>
+      <li>Желі салмақтарын нөлге теңестіру неліктен модельдің үйренуіне кедергі болатынын түсіну.</li>
+      <li>Қолданылатын активациялық функцияға байланысты Glorot (Xavier) және He инициализацияларының айырмашылығын ажырату.</li>
+      <li>Keras-та <code>kernel_initializer</code> параметрін қолданып, инициализация стратегияларын баптауды үйрену.</li>
+    </ul>
+
+    <h3>1. Кіріспе</h3>
+    <p>Спортшылар командасын жаттықтырып жатқаныңызды елестетіңіз: әрбір адам дәл бірдей дағды деңгейінен бастайды, бірдей жаттығады және дәл бірдей қателіктер жібереді. Мұндай команда ешқашан әр тарапқа дамымайды — сіз тек бір-бірінің көшірмелерін аласыз.</p>
+    <p>Нейрондық желідегі барлық салмақтарды нөлге теңестіргенде дәл осы жағдай орын алады. <strong>Симметрия мәселесі</strong> деп аталатын бұл кедергі нейрондардың әртүрлі заңдылықтарды үйренуіне жол бермейді. Желі тиімді білім алуы үшін біз осы симметрияны ең алғашқы қадамнан бастап бұзуымыз керек.</p>
+
+    <h3>2. Негізгі мазмұн</h3>
+
+    <h4>2.1. Нөлдік инициализация тұзағы</h4>
+    <p>Айнымалыны әдетте нөлден бастау интуитивті болып көрінгенімен, терең оқытуда бұл — апат.</p>
+    
+    
+
+    <ul>
+        <li><strong>Мәселе:</strong> Егер барлық салмақтар нөл болса, қабаттағы әрбір нейрон бірдей кіріс алады және бірдей шығыс есептейді. Кері таралу (backpropagation) кезінде әрбір нейрон дәл бірдей градиент жаңартуын алады.</li>
+        <li><strong>Нәтиже:</strong> Нейрондар бірдей дамиды. Желі әртүрлі белгілерді (мысалы, жиектерді немесе текстураларды) үйрене алмайды. Қабат қаншалықты кең болса да, ол іс жүзінде бір ғана нейрон сияқты әрекет етеді.</li>
+    </ul>
+    
+    <div style="background-color: #e8f4fd; padding: 10px; border-left: 4px solid #2196F3;">
+        <strong>Ескерту:</strong> Салмақтардан (weights) айырмашылығы, ығысуларды (biases) нөлге теңестіру стандартты тәжірибе болып саналады, себебі асимметрияны салмақтар реттейді.
+    </div>
+
+    <h4>2.2. Кездейсоқ инициализация және шкала мәселесі</h4>
+    <p>Симметрияны бұзу үшін салмақтарды кездейсоқ сандармен толтырамыз. Алайда, бұл сандардың ауқымы (шкаласы) өте маңызды:</p>
+    <ul>
+        <li><strong>Тым жоғары:</strong> Сигнал қабаттар арқылы өткен сайын ұлғайып, градиенттердің жарылуына (Exploding Gradients) әкеледі.</li>
+        <li><strong>Тым төмен:</strong> Сигнал әлсіреп, градиенттердің жоғалуына (Vanishing Gradients) әкеледі.</li>
+    </ul>
+
+    <h4>2.3. Заманауи стратегиялар: Glorot vs. He</h4>
+    <p>Шкала мәселесін шешу үшін алдыңғы қабаттың көлеміне негізделген екі негізгі стратегия қолданылады:</p>
+    
+    
+
+    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+      <thead>
+        <tr style="background-color: #f2f2f2;">
+          <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Стратегия</th>
+          <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Қолданылуы (Активация)</th>
+          <th style="border: 1px solid #ddd; padding: 12px; text-align: left;">Логикасы</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 8px;"><strong>Glorot (Xavier)</strong></td>
+          <td style="border: 1px solid #ddd; padding: 8px;">Sigmoid немесе Tanh</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">Сигналдың дисперсиясын қабаттар арасында шамамен тең ұстап тұрады.</td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #ddd; padding: 8px;"><strong>He Initialization</strong></td>
+          <td style="border: 1px solid #ddd; padding: 8px;">ReLU және оның нұсқалары (Leaky ReLU)</td>
+          <td style="border: 1px solid #ddd; padding: 8px;">ReLU теріс мәндерді нөлге айналдыратындықтан, салмақтарды сәл жоғарырақ дисперсиямен орнатады.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>2.4. Keras-та іске асыру</h4>
+    <p>Қабатты анықтау кезінде <code>kernel_initializer</code> параметрі арқылы стратегияны көрсетуге болады:</p>
+    
+    <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>from tensorflow.keras.layers import Dense
+from tensorflow.keras.initializers import HeNormal, Constant
+
+# 1. ReLU қабаттарына арналған стандартты тәсіл (He Normal)
+layer_relu = Dense(64, activation='relu', kernel_initializer='he_normal')
+
+# 2. Ығысуды (bias) баптау (әдетте қажет емес, бірақ мүмкін)
+layer_custom = Dense(64, 
+                     activation='relu', 
+                     kernel_initializer='he_uniform',
+                     bias_initializer=Constant(value=0.0))</code></pre>
+
+    <h3>3. Түйін</h3>
+    <ul>
+      <li><strong>Нөлсіз:</strong> Салмақтарды ешқашан нөлге теңестірмеңіз (симметрия мәселесі).</li>
+      <li><strong>Активациямен сәйкестендіру:</strong> Sigmoid/Tanh үшін Glorot, ал ReLU үшін He инициализациясын таңдаңыз.</li>
+      <li><strong>Keras әдепкісі:</strong> Keras әдепкі бойынша Glorot Uniform қолданады. Терең ReLU желілері үшін оны He Normal-ға ауыстыру ұсынылады.</li>
+    </ul>
+
+    <h3>4. Ойланып көр! (Практикалық тапсырма)</h3>
+    <div style="background-color: #fff3cd; padding: 15px; border-radius: 5px; border: 1px solid #ffeeba;">
+        <p><strong>Сценарий:</strong> Сіз ReLU активацияларын қолданатын 50 қабатты терең желіні оқытып жатырсыз. Оқыту шығыны (loss) мүлдем азаймай тұр. Кодыңызды тексеріп, мынадай қатарды таптыңыз:</p>
+        <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 10px; border-radius: 5px;"><code>model.add(Dense(128, activation='relu', kernel_initializer='zeros'))</code></pre>
+        <p><strong>Тапсырма:</strong></p>
+        <ol>
+            <li>Кодтағы желінің оқуына кедергі болып тұрған нақты қатені атаңыз.</li>
+            <li>Бұл қатарды ReLU қабатына арналған салалық стандартқа сай қалай түзетесіз?</li>
+        </ol>
+        <details>
+            <summary style="cursor: pointer; color: #0d6efd;">Жауапты көру</summary>
+            <div style="margin-top: 10px;">
+                <p>1. <strong>Қате:</strong> <code>kernel_initializer='zeros'</code> (Нөлдік инициализация симметрия мәселесін тудырады).</p>
+                <p>2. <strong>Түзету:</strong> <code>kernel_initializer='he_normal'</code> (ReLU үшін ең жақсы таңдау).</p>
+            </div>
+        </details>
+    </div>
+  `,
+    quiz: [
+        {
+            question: "Неліктен салмақтарды (weights) нөлге теңестіру ұсынылмайды?",
+            options: [
+                "Бұл GPU-дың қатты қызып кетуіне әкеледі",
+                "Бұл нейрондардың барлығы бірдей нәтиже шығарып, үйрене алмауына (симметрияға) әкеледі",
+                "Ол модельдің жадын 10 есе көп пайдалануға мәжбүрлейді",
+                "Нөл санын есептеу процессор үшін тым күрделі"
+            ],
+            correctAnswer: 1 // B
+        },
+        {
+            question: "ReLU активациялық функцияларын қолданатын терең желілер үшін қай инициализация стратегиясы ең қолайлы?",
+            options: [
+                "Glorot (Xavier) Initialization",
+                "Zero Initialization",
+                "He Initialization",
+                "Constant Initialization"
+            ],
+            correctAnswer: 2 // C
+        },
+        {
+            question: "Егер салмақтар тым үлкен мәндермен басталса, қандай мәселе туындауы мүмкін?",
+            options: [
+                "Градиенттердің жарылуы (Exploding Gradients)",
+                "Градиенттердің жоғалуы (Vanishing Gradients)",
+                "Деректердің автоматты түрде өшірілуі",
+                "Модельдің тым баяу жүктелуі"
+            ],
+            correctAnswer: 0 // A
+        },
+        {
+            question: "Keras-тағы Dense қабаттары үшін әдепкі (default) салмақ инициализациясы қандай?",
+            options: [
+                "He Normal",
+                "Random Normal",
+                "Zeros",
+                "Glorot Uniform"
+            ],
+            correctAnswer: 3 // D
+        },
+        {
+            question: "Ығысуларды (Biases) нөлге теңестіру туралы қай тұжырым дұрыс?",
+            options: [
+                "Бұл үлкен қателік, оларды да кездейсоқ санмен толтыру керек",
+                "Бұл қалыпты жағдай, себебі асимметрияны салмақтар (weights) қамтамасыз етеді",
+                "Бұл тек Linux операциялық жүйесінде ғана жұмыс істейді",
+                "Бұл модельдің дәлдігін міндетті түрде 0%-ға түсіреді"
+            ],
+            correctAnswer: 1 // B
+        }
+    ]
+};
+
+export default lesson10;

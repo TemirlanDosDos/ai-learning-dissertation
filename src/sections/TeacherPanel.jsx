@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
-import lessonsData from "../data/lessonsData";
+import lessonsData from "../data/lessons/lessonsData.js";
 
 const TEACHER_EMAIL = "teacher@university.kz";
 const TOTAL_LESSONS = 34;
