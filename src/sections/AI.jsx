@@ -1,5 +1,5 @@
 import { useState } from "react";
-import aiLessons from "../data/lessons";
+import aiLessons from "../data/aiLessons";
 
 export default function AI() {
   const [currentLesson, setCurrentLesson] = useState(null);
