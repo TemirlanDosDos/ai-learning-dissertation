@@ -1,6 +1,6 @@
 import { useState } from "react";
 import LessonStudy from "./LessonStudy";
-import lessonsData from "../data/lessonsData";
+import lessonsData from "../data/lessons";
 import { getLessonStatus } from "../services/progressService";
 
 export default function Lessons({ currentUser }) {

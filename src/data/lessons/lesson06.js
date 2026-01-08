@@ -1,0 +1,143 @@
+const lesson06 = {
+    id: 6,
+    title: "6-сабақ: Параллелизм және үлестірілген стратегиялар",
+    description: "Векторлау (Vectorization), tf.matmul, MirroredStrategy (Multi-GPU) және tf.data (cache/prefetch) арқылы өнімділікті арттыру.",
+    content: `
+    <h3>Оқу мақсаттары:</h3>
+    <ul>
+      <li>Python циклдеріне қарағанда векторлаудың (vectorization) неліктен жылдам екенін түсіну.</li>
+      <li><code>tf.matmul</code> арқылы пакеттік матрицалық көбейтуді (Batch Matrix Multiplication) іске асыру.</li>
+      <li>Оқытуды бірнеше GPU-ға масштабтау үшін <code>MirroredStrategy</code> қолдануды үйрену.</li>
+      <li><code>tf.data</code> құбырларын (pipelines) cache және prefetch арқылы оңтайландыру.</li>
+    </ul>
+
+    <h3>1. Кіріспе</h3>
+    <p>Терең оқыту модельдері миллиондаған математикалық есептеулерді қажет етеді. Жаңадан бастаушы әзірлеушілердің ең үлкен қателігі — тензорларға кәдімгі Python тізімдері сияқты қарап, оларды <code>for</code> циклдерімен өңдеуге тырысу. Бұл кодтың өнімділігін нөлге түсіреді.</p>
+    <p>Заманауи ЖИ (AI) параллельді есептеулерге негізделген.</p>
+
+    <h3>2. Негізгі мазмұн</h3>
+
+    <h4>2.1. Векторлау: Циклдерден қашу</h4>
+    <p>Егер сіз сандарды элемент бойынша көбейту үшін Python циклін жазсаңыз, CPU әрбір амалды баяу және кезекпен өңдейді. Ал тензорлық операцияларды қолданғанда, GPU мыңдаған амалды бір мезетте (параллель) орындайды. Бұл процесс <strong>Векторлау</strong> деп аталады.</p>
+
+    
+
+    <p><strong>Пакеттік көбейту кодын талдау:</strong></p>
+    <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>import tensorflow as tf
+# Пакет пішіндері: (64, 10, 20) және (64, 20, 30)
+# Мұндағы 64 — пакет (batch) өлшемі. 
+# TensorFlow 64 матрица жұбын бір уақытта көбейте алады.
+
+result = tf.matmul(batch_tensor1, batch_tensor2)</code></pre>
+
+    <h4>2.2. Үлестірілген стратегиялар (Multi-GPU)</h4>
+    <p>Бірнеше GPU-ы бар серверлерде жұмысты тиімді бөлу үшін <code>MirroredStrategy</code> қолданылады. Ол модельдің көшірмесін әрбір GPU-ға орналастырады, деректерді бөліп береді және есептелген градиенттерді өзара синхрондайды.</p>
+
+    
+
+    <p><strong>Қолдану үлгісі:</strong></p>
+    <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>strategy = tf.distribute.MirroredStrategy()
+
+# Модель мен Optimizer осы блок ішінде анықталуы тиіс
+with strategy.scope():
+    model = tf.keras.Sequential([
+        tf.keras.layers.Dense(128, activation='relu'),
+        tf.keras.layers.Dense(10)
+    ])
+    model.compile(optimizer='adam', loss='mse')</code></pre>
+
+    <h4>2.3. Мәліметтер құбырын оңтайландыру (tf.data)</h4>
+    <p>Егер GPU деректердің дисктен (HDD/SSD) жүктелуін күтіп бос тұрса, бұл оқытуды баяулататын "кедергі" (bottleneck) болып табылады.</p>
+    
+    
+
+    <p><strong>Оны шешу әдістері:</strong></p>
+    <ul>
+        <li><strong>Caching (.cache()):</strong> Деректерді бірінші оқығаннан кейін жедел жадта (RAM) сақтайды.</li>
+        <li><strong>Prefetching (.prefetch()):</strong> GPU ағымдағы топты (batch) оқытып жатқанда, CPU келесі топты алдын ала дайындап қояды.</li>
+    </ul>
+
+    <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>dataset = dataset.cache().shuffle(1000).batch(32)
+
+# AUTOTUNE TensorFlow-қа ресурстарды автоматты реттеуге мүмкіндік береді
+dataset = dataset.prefetch(tf.data.AUTOTUNE)</code></pre>
+
+    <h3>3. Түйін</h3>
+    <ul>
+      <li><strong>Циклдерді ұмытыңыз:</strong> Кодта әрқашан <code>tf.matmul</code> сияқты векторланған функцияларды қолданыңыз.</li>
+      <li><strong>Масштабтау:</strong> Бірнеше GPU-ды іске қосу үшін барлық модельді <code>strategy.scope()</code> ішінде жариялаңыз.</li>
+      <li><strong>GPU-ды "аш" қалдырмаңыз:</strong> Деректерді жеткізу жылдамдығын арттыру үшін міндетті түрде <code>.prefetch()</code> қолданыңыз.</li>
+    </ul>
+
+    <h3>4. Практикалық тапсырма</h3>
+    <div style="background-color: #fff3cd; padding: 15px; border-radius: 5px; border: 1px solid #ffeeba;">
+        <p><strong>Сценарий:</strong> Сіздің моделіңіз өте баяу оқытылуда. Монитордан қарағанда GPU қолданысы (utilization) үнемі 0%-ға түсіп кетеді де, қайта көтеріледі. Бұл деректердің дискіден модельге баяу келуінен болады.</p>
+        <p><strong>Тапсырма:</strong></p>
+        <ol>
+            <li>Осы мәселені (bottleneck) шешу үшін <code>tf.data</code> құбырына қандай екі функцияны қосу керек?</li>
+            <li>Бұл функциялардың қайсысы "келесі топты алдын ала дайындау" қызметін атқарады?</li>
+        </ol>
+        <details>
+            <summary style="cursor: pointer; color: #0d6efd;">Жауапты көру</summary>
+            <p style="margin-top: 10px;">
+                1. Қосу керек функциялар: <code>.cache()</code> және <code>.prefetch()</code>.<br>
+                2. Алдын ала дайындаушы функция: <code>.prefetch()</code>.
+            </p>
+        </details>
+    </div>
+  `,
+    quiz: [
+        {
+            question: "Неліктен терең оқытуда Python-ның стандартты for циклін қолданбаған жөн?",
+            options: [
+                "Код тым ұзын болып кетеді",
+                "Циклдер есептеулерді кезекпен (sequential) орындайды, бұл параллелизмге кедергі жасайды",
+                "TensorFlow циклдерді мүлдем қолдамайды",
+                "for циклі жадты тым көп алады"
+            ],
+            correctAnswer: 1 // B
+        },
+        {
+            question: "MirroredStrategy-дің негізгі қызметі қандай?",
+            options: [
+                "Деректерді автоматты түрде тазалау",
+                "Модельдің көшірмелерін бірнеше GPU-ға тарату және оқытуды синхрондау",
+                "Нейрондық желінің қабаттарын азайту",
+                "GPU-дың температурасын бақылау"
+            ],
+            correctAnswer: 1 // B
+        },
+        {
+            question: "Деректер құбырындағы 'Bottleneck' (кедергі) дегеніміз не?",
+            options: [
+                "Модельдің параметрлері тым көп болуы",
+                "GPU-дың CPU-ға қарағанда баяу жұмыс істеуі",
+                "CPU деректерді дайындап үлгермей, GPU-дың бос тұрып қалуы",
+                "Интернет жылдамдығының төмендігі"
+            ],
+            correctAnswer: 2 // C
+        },
+        {
+            question: ".prefetch(tf.data.AUTOTUNE) функциясының пайдасы қандай?",
+            options: [
+                "Модельдің болжам дәлдігін (accuracy) арттырады",
+                "GPU бір топты өңдеп жатқанда, CPU-ға келесі топты алдын ала дайындауға мүмкіндік береді",
+                "Модельдің салмағын (weights) азайтады",
+                "Деректерді автоматты түрде нормализациялайды"
+            ],
+            correctAnswer: 1 // B
+        },
+        {
+            question: "Егер MirroredStrategy қолдансаңыз, модельді қай жерде жариялау (define) керек?",
+            options: [
+                "Кодтың ең басында, импорттардан кейін",
+                "with strategy.scope(): блогының ішінде",
+                "Модельді оқытып болғаннан кейін",
+                "Кез келген жерде, бұл маңызды емес"
+            ],
+            correctAnswer: 1 // B
+        }
+    ]
+};
+
+export default lesson06;
