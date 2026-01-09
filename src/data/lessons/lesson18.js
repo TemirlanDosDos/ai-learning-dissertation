@@ -36,6 +36,10 @@ const lesson18 = {
       <li><strong>Себебі:</strong> Transposed Convolution кезінде ядро өлшемі адымға (stride) қалдықсыз бөлінбесе, қабаттасу біркелкі болмайды.</li>
     </ul>
 
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson18/181.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <h4>2.3. Резидуальды қабаттар (Skip Connections)</h4>
     <p>Терең желілерде градиенттің жоғалуын болдырмау үшін <strong>резидуальды байланыстар</strong> қолданылады.</p>
     <ul>
@@ -44,6 +48,10 @@ const lesson18 = {
       </li>
       <li><strong>Артықшылығы:</strong> Градиенттің еркін өтуіне мүмкіндік беріп, өте терең желілерді тиімді оқытуға жағдай жасайды.</li>
     </ul>
+
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson18/182.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     <h3>3. Түйін</h3>
     <ul>

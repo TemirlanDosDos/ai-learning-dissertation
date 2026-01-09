@@ -24,6 +24,10 @@ const lesson17 = {
       <li><strong>Белгілерді бөліп алу:</strong> Алғашқы қабаттар әдетте жиектер сияқты қарапайым геометриялық белгілерді анықтайды. Желінің тереңіне енген сайын, бұл белгілер бірігіп, күрделі нысандарды (көз, мұрын, дөңгелек т.б.) тани бастайды.</li>
     </ul>
 
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson17/171.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <h4>2.2. Адымдар (Strides): Қозғалысты басқару</h4>
     <p>Адым фильтрдің кескін бойымен қалай қозғалатынын анықтайды.</p>
 
@@ -32,6 +36,10 @@ const lesson17 = {
       <li><strong>Адым &gt; 1:</strong> Фильтр пиксельдерді аттап өтеді. Бұл есептеу жүктемесін азайтады және кескін өлшемін тиімді түрде кішірейтеді (downsampling), бірақ кейбір ұсақ бөлшектерді жоғалтуы мүмкін.</li>
     </ul>
 
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson17/172.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <h4>2.3. Толтыру (Padding): Шығыс пішінін сақтау</h4>
     <p>Фильтр кескіннің жиегінен аса алмайтындықтан, шығыс өлшемі әдетте кішірейеді. Керісінше жағдай үшін Keras екі режимді ұсынады:</p>
 
@@ -39,6 +47,10 @@ const lesson17 = {
       <li><strong>Valid Padding (padding='valid'):</strong> Толтыру жоқ. Фильтр жиекке жеткен бойда тоқтайды. Шығыс белгілер картасы кірістен кішірек болады.</li>
       <li><strong>Same Padding (padding='same'):</strong> Кескіннің айналасына нөлдерден тұратын жиек қосылады (zero-padding). Нәтижесінде шығыс белгілер картасының өлшемдері (ені мен биіктігі) кіріспен бірдей болады.</li>
     </ul>
+
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson17/173.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     <h4>2.4. Keras-та іске асыру: Conv2D</h4>
     <pre><code>from keras.layers import Conv2D

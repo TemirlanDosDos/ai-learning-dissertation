@@ -29,6 +29,10 @@ response = client.chat.completions.create(
 
 print(response.choices[0].message.content)</code></pre>
 
+    <div className="image-wrapper">
+    <img src="/assets/lessons/lesson34/341.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <h4>2.2. Промпт-инженерия: Жаңа "бағдарламау тілі"</h4>
     <p>Промпт-инженерия — модельдің мінез-құлқын бағыттау үшін кіріс мәтіндерін шебер құрастыру өнері.</p>
 
@@ -59,6 +63,10 @@ print(response.choices[0].message.content)</code></pre>
       </tbody>
     </table>
 
+    <div className="image-wrapper">
+    <img src="/assets/lessons/lesson34/342.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <h4>2.3. ЖИ Агенттері және RAG</h4>
     <p>ЖИ Агенті — мақсатқа жету үшін автономды әрекет ете алатын бағдарлама. LLM-дердің білімі оқыту кезеңімен шектелген. Бұны шешу үшін <strong>RAG (Retrieval-Augmented Generation)</strong> архитектурасы қолданылады.</p>
 
@@ -67,6 +75,10 @@ print(response.choices[0].message.content)</code></pre>
       <li><strong>Іздеу:</strong> Сұраққа ұқсас ақпаратты қоймадан алу.</li>
       <li><strong>Генерация:</strong> Табылған деректерді контекст ретінде қосып, жауап генерациялау.</li>
     </ol>
+    
+    <div className="image-wrapper">
+    <img src="/assets/lessons/lesson34/343.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     <h3>3. Түйін</h3>
     <ul>

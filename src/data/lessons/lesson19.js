@@ -23,6 +23,10 @@ const lesson19 = {
       <li><strong>Семантикалық мағына:</strong> Оқыту кезінде мағынасы ұқсас сөздер векторлық кеңістікте бір-біріне жақын орналасады (мысалы, «Патша» және «Патшайым»).</li>
     </ul>
 
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson19/191.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+
     <p><strong>Keras-та іске асыру:</strong></p>
     <pre><code>from keras.models import Sequential
 from keras.layers import Embedding
@@ -51,6 +55,10 @@ model.add(Embedding(input_dim=1000, output_dim=64, input_length=10))</code></pre
       <li><strong>Градиенттің жоғалуы (Vanishing Gradient):</strong> Қателік сигналы уақыт бойынша артқа жылжыған сайын әлсірейді, желі сөйлемнің басындағы ақпаратты «ұмытады».</li>
       <li><strong>Градиенттің жарылуы (Exploding Gradient):</strong> Градиенттер тым үлкейіп, модельді тұрақсыз етеді (NaN мәндері).</li>
     </ul>
+
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson19/192.png" alt="" style="width: 50%; height: auto;" />
+    </div>
 
     <h3>3. Түйін</h3>
     <ul>
