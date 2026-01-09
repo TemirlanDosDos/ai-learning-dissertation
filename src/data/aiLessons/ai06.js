@@ -2,7 +2,9 @@ const ai06 = {
   id: 6,
   title: "Image → Prompt",
   content: `
+  <section class="lesson-section intro">
     <h2>🧠 6-сабақ. Image → Prompt</h2>
+
     <p><strong>Тақырып:</strong> ChatGPT арқылы суретке дәл промпт жасау</p>
     <p><strong>Ұзақтығы:</strong> ~30 минут</p>
 
@@ -13,14 +15,13 @@ const ai06 = {
         максималды дәл және сапалы промпт алуды үйренесіз.
       </em>
     </p>
+  </section>
 
-    <!-- IMAGE 1 -->
-    <!-- СХЕМА: Image → Prompt -->
-    <!-- Сурет → AI → Дәл промпт -->
+  <hr/>
 
-    <hr/>
-
+  <section class="lesson-section">
     <h3>1️⃣ Image → Prompt деген не?</h3>
+
     <p>
       <strong>Image → Prompt</strong> — бұл дайын суретті
       талдап, сол суретті қайта жасауға
@@ -32,38 +33,35 @@ const ai06 = {
       <li>Дәл стильді көшіру</li>
       <li>Midjourney / Gemini / DALL·E үшін промпт алу</li>
     </ul>
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section">
     <h3>2️⃣ Қолданылатын сервис</h3>
-    <p>
-      Бұл сабақта <strong>ChatGPT</strong> қолданылады.
-    </p>
+
+    <p>Бұл сабақта <strong>ChatGPT</strong> қолданылады.</p>
 
     <p>
       👉 <a href="https://chat.openai.com" target="_blank">
       https://chat.openai.com
       </a>
     </p>
-    <img
-      src="/assets/aiLessons/ai01/picture1.jpg"
-      alt="AI ML DL Diagram"
-      style="max-width:35%; margin:20px 0;"
-    />
+
+    <img src="/assets/aiLessons/ai01/picture1.jpg" alt="AI ML DL Diagram" />
 
     <ul>
       <li>Сурет жүктеу қолдауы бар</li>
       <li>Картинканы талдай алады</li>
       <li>Дәл сипаттама жазады</li>
     </ul>
+  </section>
 
-    <!-- IMAGE 2 -->
-    <!-- СКРИНШОТ: ChatGPT интерфейсі -->
-    <!-- 📎 сурет жүктеу батырмасы -->
+  <hr/>
 
-    <hr/>
-
+  <section class="lesson-section">
     <h3>3️⃣ Қалай жұмыс істейді?</h3>
+
     <ol>
       <li>ChatGPT чатына суретті жүктейсіз</li>
       <li>Промпт сұрайсыз</li>
@@ -73,15 +71,13 @@ const ai06 = {
     <pre>
 Сурет → талдау → толық промпт
     </pre>
-    
-    <img
-      src="/assets/aiLessons/ai06/12.jpg"
-      alt="AI ML DL Diagram"
-      style="max-width:30%; margin:20px 0;"
-    />
 
-    <hr/>
+    <img src="/assets/aiLessons/ai06/12.jpg" alt="AI ML DL Diagram" />
+  </section>
 
+  <hr/>
+
+  <section class="lesson-section examples">
     <h3>4️⃣ Тірі мысалдар — 3 промпт</h3>
 
     <h4>🔹 Мысал №1. Дәл көшірме үшін</h4>
@@ -92,12 +88,8 @@ const ai06 = {
 Стиль, жарық, атмосфера, объектілердің бәрін сипатта.
     </pre>
 
-    <img
-      src="/assets/aiLessons/ai06/1.webp"
-      alt="AI ML DL Diagram"
-      style="max-width:30%; margin:20px 0;"
-    />
-    
+    <img src="/assets/aiLessons/ai06/1.webp" alt="AI ML DL Diagram" />
+
     <pre>
 PROMPT (қазақша):
 Жоғары сапалы студиялық фотосурет. Кадрда жас әйел және үлкен тропикалық тотықұс (попугай-макао) иық деңгейінде өте жақын тұр.
@@ -138,12 +130,8 @@ image generation үшін
 профессионалды промпт жаз.
     </pre>
 
-    <img
-      src="/assets/aiLessons/ai06/2.avif"
-      alt="AI ML DL Diagram"
-      style="max-width:20%; margin:20px 0;"
-    />
-    
+    <img src="/assets/aiLessons/ai06/2.avif" alt="AI ML DL Diagram" />
+
     <pre>
 Қазақша нұсқа (егер қазақ тілді AI қолдансаң)
 Жас әйелдің болашақ-стильдегі кинематографиялық портреті. Кадр — профиль, әйел оң жаққа қараған.
@@ -165,39 +153,6 @@ Aspect Ratio: 2:3
 Style Weight: high
 Lighting: neon rim light + teal/orange contrast
 Camera: 85mm portrait look
-
-🎨 1️⃣ Стиль (Style)
-Қала атмосферасындағы сәнді портрет (urban fashion portrait)
-Аздап кинематографиялық өң (cinematic look)
-Заманауи, суық тондағы editorial стиль
-Минималистік, назар толық модельге бағытталған
-Түзу, сенімді поза — күшті кейіпкер образы
-
-🌈 2️⃣ Түстер палитрасы (Color Palette)
-Суық, әлсіз контрастты түстер
-Негізгі түстер:
-қара (тері күртеше)
-сұр және қою реңктер (фон)
-табиғи тері түсі
-Жалпы тон — muted / desaturated
-Түстер тыныш, эмоциясыз, салқын атмосфера береді
-
-💡 3️⃣ Жарық (Lighting)
-Жұмсақ табиғи немесе жұмсақ диффузды студиялық жарық
-Алдыңғы–жоғары бұрыштан бағытталған (soft frontal key light)
-Көлеңкелер жұмсақ, бет пішінін жеңіл айқындайды
-Контраст орташа
-Жалпы экспозиция сәл қараңғылау (moody lighting)
-
-📐 4️⃣ Композиция (Composition)
-Орташа пландағы портрет (mid-shot)
-Модель орталықта
-Камера — көз деңгейінде
-Вертикаль (portrait orientation)
-Жіңішке ұзын коридор — симметрия және перспектива береді
-Қолдар белде — поза сенімділікті көрсетеді
-Фокус модель бетінде
-Фон — жұмсақ размытый
     </pre>
 
     <h4>🔹 Мысал №3. Стильді бөліп көрсету</h4>
@@ -208,25 +163,22 @@ Camera: 85mm portrait look
 соған арналған промпт құрастыр.
     </pre>
 
-    <img
-      src="/assets/aiLessons/ai06/3.png"
-      alt="AI ML DL Diagram"
-      style="max-width:20%; margin:20px 0;"
-    />
-    
-<pre>
+    <img src="/assets/aiLessons/ai06/3.png" alt="AI ML DL Diagram" />
+
+    <pre>
 🇰🇿 Қазақша нұсқа (қажет болса)
 Ұзын коридорда тұрған жас әйелдің сәндік портреті. Ол кадр ортасында, камераға тіке қарап, беліне қолын қойып тұр.
 Үстінде — қара былғары пальто. Атмосфера — салқын реңкті, минималистік және кинематографиялық. Жарық жұмсақ, бетіне түсіп, жеңіл көлеңке береді.
 Түстер палитрасы — қара және сұр, бәсең, контраст шамалы. Фондағы коридор симметриялы сызықтар құрап, назарды модельге бағыттайды.
 Стиль — high-fashion editorial portrait.
     </pre>
+  </section>
 
-    <hr/>
+  <hr/>
 
-    
-
+  <section class="lesson-section conclusion">
     <h3>5️⃣ Қорытынды</h3>
+
     <ul>
       <li>Суреттен сапалы промпт алуды үйрендіңіз</li>
       <li>ChatGPT талдау мүмкіндігін қолдандыңыз</li>
@@ -234,6 +186,7 @@ Camera: 85mm portrait look
     </ul>
 
     <p><strong>Келесі сабақ:</strong> Text → Code</p>
+  </section>
   `
 };
 

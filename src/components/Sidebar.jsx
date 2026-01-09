@@ -3,6 +3,18 @@ import { useState } from 'react';
 export default function Sidebar({ active, setActive, onLogout }) {
   const [open, setOpen] = useState(true);
 
+  const toggleTheme = () => {
+    document.body.classList.toggle("dark");
+
+    localStorage.setItem(
+      "theme",
+      document.body.classList.contains("dark") ? "dark" : "light"
+    );
+  };
+
+
+
+
   return (
     <div className={`sidebar ${open ? 'open' : 'closed'}`}>
       <button className="toggle-btn" onClick={() => setOpen(!open)}>
@@ -52,6 +64,21 @@ export default function Sidebar({ active, setActive, onLogout }) {
           </button>
 
           <hr />
+
+          <div className="sidebar-settings">
+            <span className="theme-label">☀️/🌙</span>
+
+            <div
+              className="theme-toggle"
+              onClick={toggleTheme}
+              title="Сменить тему"
+            >
+              <div className="thumb" />
+            </div>
+          </div>
+
+
+
 
           <button className="menu-btn logout" onClick={onLogout}>
             🚪 Шығу

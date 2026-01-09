@@ -24,9 +24,7 @@ const lesson03 = {
     <h4>2.1. Тұрақтылар (Constants) vs Айнымалылар (Variables)</h4>
     <p>Деректің сипатына қарай біз тиісті функцияны таңдаймыз:</p>
 
-    
-
-    <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>import tensorflow as tf
+    <pre><code>import tensorflow as tf
 
 # Тұрақты тензор (өзгермейді)
 a = tf.constant([1, 2, 3])
@@ -36,8 +34,6 @@ w = tf.Variable([0.5, 0.1, 0.8])</code></pre>
 
     <h4>2.2. Математикалық амалдар (Element-wise)</h4>
     <p>TensorFlow-тағы арифметикалық амалдардың басты ерекшелігі — олар <strong>элемент бойынша</strong> орындалады. Бұл дегеніміз, амал тензорлардың сәйкес позицияларындағы сандар арасында жүреді.</p>
-
-    
 
     <p><strong>Негізгі функциялар:</strong></p>
     <ul>
@@ -49,12 +45,10 @@ w = tf.Variable([0.5, 0.1, 0.8])</code></pre>
 
     <h4>2.3. Хабарлау (Broadcasting)</h4>
     <p>Бұл — TensorFlow-тың ең қуатты мүмкіндіктерінің бірі. Егер екі тензордың өлшемдері әртүрлі болса, кіші тензор үлкеніне сәйкес келу үшін виртуалды түрде «созылады».</p>
-    
-    
 
-    <div style="background-color: #e8f4fd; padding: 15px; border-radius: 5px; border-left: 5px solid #2196F3;">
-        <p><strong>Мысалы:</strong> Егер сіз <code>[1, 2, 3]</code> тензорына жай ғана <code>5</code> санын (скаляр) қоссаңыз, TensorFlow 5-ті <code>[5, 5, 5]</code> түріне келтіріп, нәтижені <code>[6, 7, 8]</code> қылып шығарады.</p>
-    </div>
+    <blockquote>
+      <strong>Мысалы:</strong> Егер сіз <code>[1, 2, 3]</code> тензорына жай ғана <code>5</code> санын (скаляр) қоссаңыз, TensorFlow 5-ті <code>[5, 5, 5]</code> түріне келтіріп, нәтижені <code>[6, 7, 8]</code> қылып шығарады.
+    </blockquote>
 
     <h3>3. Түйін</h3>
     <ul>
@@ -64,22 +58,24 @@ w = tf.Variable([0.5, 0.1, 0.8])</code></pre>
     </ul>
 
     <h3>4. Ойланып көр! (Практикалық тапсырма)</h3>
-    <div style="background-color: #fff3cd; padding: 15px; border-radius: 5px; border: 1px solid #ffeeba;">
-        <p><strong>Сценарий:</strong> Сіз <code>y = x * w + b</code> формуласымен жұмыс істейтін қарапайым нейронның нәтижесін есептеуіңіз керек.</p>
-        <ul>
-            <li><strong>Кіріс (x):</strong> <code>tf.constant([5.0, 6.0])</code></li>
-            <li><strong>Салмақ (w):</strong> <code>tf.Variable([2.0, 2.0])</code></li>
-            <li><strong>Ығысу (b):</strong> <code>tf.Variable([1.0])</code></li>
-        </ul>
-        <p><strong>Тапсырма:</strong></p>
-        <ol>
-            <li>Бұл есептеу қалай жүреді? (Элемент бойынша көбейту нәтижесін есептеңіз).</li>
-            <li>Хабарлау (Broadcasting) механизмі мұнда қай жерде іске қосылады?</li>
-        </ol>
-        <details>
-            <summary style="cursor: pointer; color: #0d6efd;">Көмек (Жауапты ашу)</summary>
-            <p style="margin-top: 10px;">Алдымен <strong>x</strong> пен <strong>w</strong> элемент бойынша көбейтіледі: <code>[5*2, 6*2] = [10, 12]</code>. <br>Содан кейін шыққан нәтижеге <strong>b</strong> (скаляр сияқты) қосылады. Broadcasting осы жерде іске қосылып, 1.0 санын екі элементке де қосады: <code>[10+1, 12+1] = [11, 13]</code>.</p>
-        </details>
+    <div style="background-color: #fff3cd; padding: 15px; border-radius: 8px; border: 1px solid #ffeeba;">
+      <p><strong>Сценарий:</strong> Сіз <code>y = x * w + b</code> формуласымен жұмыс істейтін қарапайым нейронның нәтижесін есептеуіңіз керек.</p>
+      <ul>
+        <li><strong>Кіріс (x):</strong> <code>tf.constant([5.0, 6.0])</code></li>
+        <li><strong>Салмақ (w):</strong> <code>tf.Variable([2.0, 2.0])</code></li>
+        <li><strong>Ығысу (b):</strong> <code>tf.Variable([1.0])</code></li>
+      </ul>
+
+      <p><strong>Тапсырма:</strong></p>
+      <ol>
+        <li>Бұл есептеу қалай жүреді? (Элемент бойынша көбейту нәтижесін есептеңіз).</li>
+        <li>Хабарлау (Broadcasting) механизмі мұнда қай жерде іске қосылады?</li>
+      </ol>
+
+      <details>
+        <summary>Көмек (Жауапты ашу)</summary>
+        <p>Алдымен <strong>x</strong> пен <strong>w</strong> элемент бойынша көбейтіледі: <code>[5*2, 6*2] = [10, 12]</code>. <br/>Содан кейін шыққан нәтижеге <strong>b</strong> (скаляр сияқты) қосылады. Broadcasting осы жерде іске қосылып, 1.0 санын екі элементке де қосады: <code>[10+1, 12+1] = [11, 13]</code>.</p>
+      </details>
     </div>
   `,
   quiz: [
@@ -91,7 +87,7 @@ w = tf.Variable([0.5, 0.1, 0.8])</code></pre>
         "tf.fixed()",
         "tf.data()"
       ],
-      correctAnswer: 1 // B
+      correctAnswer: 1
     },
     {
       question: "tf.multiply(a, b) амалы TensorFlow-та қалай орындалады?",
@@ -101,7 +97,7 @@ w = tf.Variable([0.5, 0.1, 0.8])</code></pre>
         "Сәйкес элементтерді бір-біріне элемент бойынша көбейтеді",
         "Екі тензорды біріктіреді"
       ],
-      correctAnswer: 2 // C
+      correctAnswer: 2
     },
     {
       question: "Хабарлау (Broadcasting) механизмі қашан іске қосылады?",
@@ -111,7 +107,7 @@ w = tf.Variable([0.5, 0.1, 0.8])</code></pre>
         "Тек GPU қосулы болғанда",
         "Тек сандар бүтін болғанда"
       ],
-      correctAnswer: 1 // B
+      correctAnswer: 1
     },
     {
       question: "tensor + 5 амалын орындағанда не болады?",
@@ -121,7 +117,7 @@ w = tf.Variable([0.5, 0.1, 0.8])</code></pre>
         "5 саны хабарлау арқылы әрбір элементке қосылады",
         "Тензордың өлшемі 5-ке артады"
       ],
-      correctAnswer: 2 // C
+      correctAnswer: 2
     },
     {
       question: "Неліктен нейрондық желінің салмақтарын (weights) tf.constant ретінде анықтауға болмайды?",
@@ -131,7 +127,7 @@ w = tf.Variable([0.5, 0.1, 0.8])</code></pre>
         "Өйткені олар тек нөлден тұрады",
         "Өйткені олар GPU-да жұмыс істемейді"
       ],
-      correctAnswer: 1 // B
+      correctAnswer: 1
     }
   ]
 };

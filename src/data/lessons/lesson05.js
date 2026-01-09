@@ -19,9 +19,7 @@ const lesson05 = {
     <h4>2.1. Тензорларды транспонирлеу</h4>
     <p><code>reshape</code> деректердің жадыдағы орналасу ретін сақтаса, <code>transpose</code> осьтердің (axes) өздерін қайта реттейді. Бұл матрицадағы жолдар мен бағандардың орнын ауыстырумен бірдей.</p>
 
-    
-
-    <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>import tensorflow as tf
+    <pre><code>import tensorflow as tf
 
 # 2x3 матрицасы
 matrix = tf.constant([[1, 2, 3], [4, 5, 6]]) 
@@ -33,20 +31,17 @@ transposed = tf.transpose(matrix)
     <h4>2.2. "Уайлдкард" [-1] қолдану</h4>
     <p>Тереңірек желілермен жұмыс істегенде, әрбір операция үшін элементтер санын қолмен есептеу қиын. TensorFlow бұл математиканы автоматтандыру үшін <code>-1</code> индексін ұсынады. Бұл индекс "қалған барлық элементтерді осы өлшемге жинақта" дегенді білдіреді.</p>
 
-    
-
     <h4>2.3. Кескін форматтары: Channel Last vs Channel First</h4>
     <p>Бұл — Конволюциялық нейрондық желілерде (CNN) ең маңызды тақырыптардың бірі.</p>
-    
-    
 
     <ul>
-        <li><strong>Channel Last (H, W, C):</strong> TensorFlow үшін әдепкі формат. Канал (түс) соңында тұрады.</li>
-        <li><strong>Channel First (C, H, W):</strong> Кейбір GPU драйверлері мен фреймворктер (мысалы, PyTorch) үшін жылдамырақ формат.</li>
+      <li><strong>Channel Last (H, W, C):</strong> TensorFlow үшін әдепкі формат. Канал (түс) соңында тұрады.</li>
+      <li><strong>Channel First (C, H, W):</strong> Кейбір GPU драйверлері мен фреймворктер (мысалы, PyTorch) үшін жылдамырақ формат.</li>
     </ul>
 
     <p>Оларды ауыстыру үшін <code>perm</code> (permutation) аргументін қолданамыз:</p>
-    <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code># (H, W, C) -> (C, H, W) ауыстыру
+
+    <pre><code># (H, W, C) -> (C, H, W) ауыстыру
 # 0-ші ось (H) -> 1-ге
 # 1-ші ось (W) -> 2-ге
 # 2-ші ось (C) -> 0-ге ауысады
@@ -61,20 +56,20 @@ output = tf.transpose(tensor, perm=[2, 0, 1])</code></pre>
     </ul>
 
     <h3>4. Ойланып көр! (Практикалық тапсырма)</h3>
-    <div style="background-color: #fff3cd; padding: 15px; border-radius: 5px; border: 1px solid #ffeeba;">
-        <p><strong>Сценарий:</strong> Сіз кескінді өңдейтін модель алдыңыз. Модель деректерді <code>(Channel, Height, Width)</code> форматында күтеді. Бірақ сіздің деректеріңіз стандартты <code>(Height, Width, Channel)</code> форматында, пішіні <code>(224, 224, 3)</code>.</p>
-        <p><strong>Тапсырма:</strong></p>
-        <ol>
-            <li>Осы кескінді модельге дұрыс беру үшін <code>tf.transpose</code> функциясын қалай қолданасыз?</li>
-            <li><code>perm</code> аргументіне сандардың қандай тізімін жазасыз?</li>
-        </ol>
-        <details>
-            <summary style="cursor: pointer; color: #0d6efd;">Жауапты көру</summary>
-            <p style="margin-top: 10px;">
-                Дұрыс код: <code>tf.transpose(image, perm=[2, 0, 1])</code>.<br>
-                Түсіндірме: Бастапқы осьтер [0, 1, 2]. Біз 2-ші осьті (Channel) басына қоямыз, содан кейін 0 (Height) және 1 (Width) келеді.
-            </p>
-        </details>
+    <div style="background-color: #fff3cd; padding: 15px; border-radius: 8px; border: 1px solid #ffeeba;">
+      <p><strong>Сценарий:</strong> Сіз кескінді өңдейтін модель алдыңыз. Модель деректерді <code>(Channel, Height, Width)</code> форматында күтеді. Бірақ сіздің деректеріңіз стандартты <code>(Height, Width, Channel)</code> форматында, пішіні <code>(224, 224, 3)</code>.</p>
+      <p><strong>Тапсырма:</strong></p>
+      <ol>
+        <li>Осы кескінді модельге дұрыс беру үшін <code>tf.transpose</code> функциясын қалай қолданасыз?</li>
+        <li><code>perm</code> аргументіне сандардың қандай тізімін жазасыз?</li>
+      </ol>
+      <details>
+        <summary>Жауапты көру</summary>
+        <p>
+          Дұрыс код: <code>tf.transpose(image, perm=[2, 0, 1])</code>.<br/>
+          Түсіндірме: Бастапқы осьтер [0, 1, 2]. Біз 2-ші осьті (Channel) басына қоямыз, содан кейін 0 (Height) және 1 (Width) келеді.
+        </p>
+      </details>
     </div>
   `,
   quiz: [
@@ -86,7 +81,7 @@ output = tf.transpose(tensor, perm=[2, 0, 1])</code></pre>
         "transpose тек 1D тензорлармен жұмыс істейді",
         "reshape тек GPU-да жұмыс істейді"
       ],
-      correctAnswer: 1 // B
+      correctAnswer: 1
     },
     {
       question: "tf.reshape(tensor, [-1, 28]) командасындағы -1 не істейді?",
@@ -96,7 +91,7 @@ output = tf.transpose(tensor, perm=[2, 0, 1])</code></pre>
         "Ол барлық мәндерді теріс сандарға айналдырады",
         "Ол тензорды нөлге теңестіреді"
       ],
-      correctAnswer: 1 // B
+      correctAnswer: 1
     },
     {
       question: "TensorFlow-тағы кескіндердің әдепкі форматы (Channel Last) қалай жазылады?",
@@ -106,7 +101,7 @@ output = tf.transpose(tensor, perm=[2, 0, 1])</code></pre>
         "(Width, Channel, Height)",
         "(Batch, Channel)"
       ],
-      correctAnswer: 1 // B
+      correctAnswer: 1
     },
     {
       question: "2x3 матрицасына tf.transpose қолданғанда, жаңа пішін қандай болады?",
@@ -116,7 +111,7 @@ output = tf.transpose(tensor, perm=[2, 0, 1])</code></pre>
         "3x2",
         "1x6"
       ],
-      correctAnswer: 2 // C
+      correctAnswer: 2
     },
     {
       question: "Неліктен кескін каналдарын ауыстыру үшін reshape қолдануға болмайды?",
@@ -126,7 +121,7 @@ output = tf.transpose(tensor, perm=[2, 0, 1])</code></pre>
         "Себебі reshape тек векторларға арналған",
         "Себебі reshape жадты тым көп алады"
       ],
-      correctAnswer: 1 // B
+      correctAnswer: 1
     }
   ]
 };

@@ -2,7 +2,9 @@ const ai04 = {
   id: 4,
   title: "Audio → Text",
   content: `
+  <section class="lesson-section intro">
     <h2>🧠 4-сабақ. Audio → Text</h2>
+
     <p><strong>Тақырып:</strong> ChatGPT-тегі дауыс арқылы енгізу</p>
     <p><strong>Ұзақтығы:</strong> ~15–20 минут</p>
 
@@ -13,10 +15,13 @@ const ai04 = {
         қалай дұрыс қолдану керегін үйренесіз.
       </em>
     </p>
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section">
     <h3>1️⃣ Бұл функция не үшін керек?</h3>
+
     <p>
       ChatGPT-тегі <strong>🎤 микрофон батырмасы</strong> —
       сіздің айтқан сөзіңізді автоматты түрде
@@ -30,14 +35,14 @@ const ai04 = {
       <li>Черновик жасау үшін</li>
     </ul>
 
-    <img
-      src="/assets/aiLessons/ai04/1.jpg"
-      alt="AI ML DL Diagram"
-      style="max-width:20%; margin:20px 0;"
-    />
-    <hr/>
+    <img src="/assets/aiLessons/ai04/1.jpg" alt="AI ML DL Diagram" />
+  </section>
 
+  <hr/>
+
+  <section class="lesson-section">
     <h3>2️⃣ Қалай жұмыс істейді?</h3>
+
     <p>
       Бұл функцияда аудиофайл жүктеу қажет емес.
       Сіз тек микрофонға сөйлейсіз.
@@ -52,11 +57,13 @@ const ai04 = {
       айтылған сөзді бірден мәтін ретінде
       чатқа енгізеді.
     </p>
- 
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section">
     <h3>3️⃣ Қалай қолдану керек?</h3>
+
     <ol>
       <li>chat.openai.com сайтына кіріңіз</li>
       <li>Чаттың төменгі жағындағы 🎤 батырмасын басыңыз</li>
@@ -65,24 +72,21 @@ const ai04 = {
       <li>Экранда шыққан мәтінді пайдаланыңыз</li>
     </ol>
 
-    <img
-      src="/assets/aiLessons/ai04/2.jpg"
-      alt="AI ML DL Diagram"
-      style="max-width:20%; margin:20px 0;"
-    />
+    <img src="/assets/aiLessons/ai04/2.jpg" alt="AI ML DL Diagram" />
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section">
     <h3>4️⃣ Бұл функция қалай қолданылады?</h3>
+
     <p>
       Дауыс арқылы енгізу көбіне
       <strong>мәтінді тез енгізу</strong> үшін қолданылады.
       Бұл дайын нәтиже емес, бастапқы мәтін.
     </p>
 
-    <p>
-      Әдетте қолдану логикасы:
-    </p>
+    <p>Әдетте қолдану логикасы:</p>
 
     <pre>
 Айтып жазу → мәтін пайда болады → кейін өңдеу немесе нақты тапсырма беру
@@ -93,10 +97,13 @@ const ai04 = {
       <strong>енгізу тәсілі ғана</strong>,
       ал негізгі жұмыс кейін жасалады.
     </p>
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section conclusion">
     <h3>5️⃣ Қорытынды</h3>
+
     <ul>
       <li>🎤 микрофон — ең жылдам енгізу тәсілі</li>
       <li>Файлсыз, бірден жұмыс істейді</li>
@@ -104,6 +111,7 @@ const ai04 = {
     </ul>
 
     <p><strong>Келесі сабақ:</strong> Image → Text</p>
+  </section>
   `
 };
 

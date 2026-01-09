@@ -2,7 +2,9 @@ const ai02 = {
   id: 2,
   title: "Text → Image",
   content: `
+  <section class="lesson-section intro">
     <h2>🧠 2-сабақ. Text → Image</h2>
+
     <p><strong>Тақырып:</strong> Gemini AI көмегімен мәтін арқылы сурет жасау</p>
     <p><strong>Ұзақтығы:</strong> ~40 минут</p>
 
@@ -12,11 +14,13 @@ const ai02 = {
         мәтіндік сипаттама (промпт) арқылы сурет генерациялауды үйренесіз.
       </em>
     </p>
+  </section>
 
+  <hr/>
 
-    <hr/>
-
+  <section class="lesson-section">
     <h3>1️⃣ Text → Image деген не?</h3>
+
     <p>
       <strong>Text → Image</strong> — бұл жасанды интеллектке мәтін түрінде
       сипаттама беріп, сол сипаттамаға сәйкес сурет алу процесі.
@@ -28,11 +32,13 @@ const ai02 = {
       <li>Әлеуметтік желіге контент жасау</li>
       <li>Идеяларды визуалды түрде көрсету</li>
     </ul>
+  </section>
 
+  <hr/>
 
-    <hr/>
-
+  <section class="lesson-section">
     <h3>2️⃣ Gemini AI қалай жұмыс істейді?</h3>
+
     <p>
       Gemini — Google компаниясы жасаған көпмодальды жасанды интеллект.
       Ол мәтінді талдап, ондағы объектілерді, эмоцияны, жарықты және стильді
@@ -42,19 +48,16 @@ const ai02 = {
     <pre>
 Мәтіндік промпт → Gemini AI → Сурет
     </pre>
-    
-    <img
-      src="/assets/aiLessons/ai02/555.webp"
-      alt="AI ML DL Diagram"
-      style="max-width:25%; margin:20px 0;"
-    />
 
-    <hr/>
+    <img src="/assets/aiLessons/ai02/555.webp" alt="AI ML DL Diagram" />
+  </section>
 
+  <hr/>
+
+  <section class="lesson-section">
     <h3>3️⃣ Gemini AI қолданылатын сервис</h3>
-    <p>
-      Бұл сабақта біз Google Gemini ресми сервисін қолданамыз.
-    </p>
+
+    <p>Бұл сабақта біз Google Gemini ресми сервисін қолданамыз.</p>
 
     <p>
       👉 <a href="https://gemini.google.com" target="_blank">
@@ -68,15 +71,14 @@ const ai02 = {
       <li>Қарапайым интерфейс</li>
     </ul>
 
-    <img
-      src="/assets/aiLessons/ai02/1.jpg"
-      alt="AI ML DL Diagram"
-      style="max-width:20%; margin:20px 0;"
-    />
+    <img src="/assets/aiLessons/ai02/1.jpg" alt="AI ML DL Diagram" />
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section">
     <h3>4️⃣ Қадамдап нұсқаулық</h3>
+
     <ol>
       <li>Браузерде gemini.google.com сайтына кіріңіз</li>
       <li>Google аккаунтыңызбен кіріңіз</li>
@@ -84,10 +86,11 @@ const ai02 = {
       <li>Gemini берген нәтижені күтіңіз</li>
       <li>Қажет болса, промптты нақтылап қайта жазыңыз</li>
     </ol>
+  </section>
 
+  <hr/>
 
-    <hr/>
-
+  <section class="lesson-section examples">
     <h3>5️⃣ Тірі мысалдар — 3 сапалы промпт</h3>
 
     <h4>🔹 Промпт №1. Фотореалистік портрет</h4>
@@ -102,12 +105,7 @@ const ai02 = {
 кәсіби камерамен түсірілгендей,
 жоғары айқындық және детализация.
     </pre>
-
-    <img
-      src="/assets/aiLessons/ai02/2.jpg"
-      alt="AI ML DL Diagram"
-      style="max-width:20%; margin:20px 0;"
-    />
+    <img src="/assets/aiLessons/ai02/2.jpg" alt="AI ML DL Diagram" />
 
     <h4>🔹 Промпт №2. Кинематографиялық эмоция</h4>
     <pre>
@@ -120,12 +118,7 @@ const ai02 = {
 терең атмосфера, драмалық көңіл күй,
 жоғары сапалы визуал.
     </pre>
-
-    <img
-      src="/assets/aiLessons/ai02/3.jpg"
-      alt="AI ML DL Diagram"
-      style="max-width:20%; margin:20px 0;"
-    />
+    <img src="/assets/aiLessons/ai02/3.jpg" alt="AI ML DL Diagram" />
 
     <h4>🔹 Промпт №3. Заманауи lifestyle көрініс</h4>
     <pre>
@@ -138,20 +131,16 @@ lifestyle фотосурет стилі,
 таза композиция,
 жоғары детализация және сапа.
     </pre>
+    <img src="/assets/aiLessons/ai02/4.jpg" alt="AI ML DL Diagram" />
+  </section>
 
-    <img
-      src="/assets/aiLessons/ai02/4.jpg"
-      alt="AI ML DL Diagram"
-      style="max-width:20%; margin:20px 0;"
-    />
+  <hr/>
 
-    <hr/>
-
+  <section class="lesson-section mistakes">
     <h3>6️⃣ Жиі кездесетін қателер</h3>
-    <p>
-      ❌ Қате промпт:
-      <code>Әдемі сурет сал</code>
-    </p>
+
+    <p>❌ Қате промпт: <code>Әдемі сурет сал</code></p>
+
     <p>
       ✅ Дұрыс промпт:
       <code>
@@ -160,15 +149,14 @@ lifestyle фотосурет стилі,
       </code>
     </p>
 
-    <img
-      src="/assets/aiLessons/ai02/56.jpg"
-      alt="AI ML DL Diagram"
-      style="max-width:30%; margin:20px 0;"
-    />
+    <img src="/assets/aiLessons/ai02/56.jpg" alt="AI ML DL Diagram" />
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section conclusion">
     <h3>7️⃣ Қорытынды</h3>
+
     <ul>
       <li>Text → Image қалай жұмыс істейтінін түсіндіңіз</li>
       <li>Gemini AI арқылы сапалы сурет жасауды үйрендіңіз</li>
@@ -176,6 +164,7 @@ lifestyle фотосурет стилі,
     </ul>
 
     <p><strong>Келесі сабақ:</strong> Text → Speech</p>
+  </section>
   `
 };
 

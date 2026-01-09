@@ -17,17 +17,15 @@ export function getLessonStatus(
   // 👨‍🏫 Учителю всё открыто
   if (role === "teacher") return "available";
 
-  if (completedLessons.includes(lessonId)) return "completed";
+  // ✅ Если урок пройден
+  if (completedLessons.includes(lessonId)) {
+    return "completed";
+  }
 
-  const nextLesson =
-    completedLessons.length === 0
-      ? 1
-      : Math.max(...completedLessons) + 1;
-
-  if (lessonId === nextLesson) return "available";
-
-  return "locked";
+  // ✅ ВСЕ остальные уроки доступны
+  return "available";
 }
+
 
 
 export async function completeLesson(user, lessonId) {

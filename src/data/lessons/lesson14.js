@@ -1,8 +1,8 @@
 const lesson14 = {
-    id: 14,
-    title: "14-сабақ: Жалпылау (Generalization) және TensorBoard",
-    description: "Артық оқыту (Overfitting) vs Жеткіліксіз оқыту (Underfitting), Оқу қисығын талдау және TensorBoard визуализациясы.",
-    content: `
+  id: 14,
+  title: "14-сабақ: Жалпылау (Generalization) және TensorBoard",
+  description: "Артық оқыту (Overfitting) vs Жеткіліксіз оқыту (Underfitting), Оқу қисығын талдау және TensorBoard визуализациясы.",
+  content: `
     <h3>Оқу мақсаттары:</h3>
     <ul>
       <li>Қателіктің екі түрін: Артық оқыту (Overfitting / Жоғары дисперсия) және Жеткіліксіз оқыту (Underfitting / Жоғары ауытқу) арасындағы айырмашылықты түсіну.</li>
@@ -18,52 +18,46 @@ const lesson14 = {
 
     <h4>2.1. Жалпылау қателіктері: Ауытқу (Bias) vs. Дисперсия (Variance)</h4>
     <p>Кез келген нейрондық желінің мақсаты — <strong>жалпылау</strong>, яғни бұрын көрмеген жаңа деректерді тиімді өңдеу.</p>
-    
-    
 
     <ul>
-        <li><strong>Артық оқыту (Overfitting / Жоғары дисперсия):</strong>
-            <ul>
-                <li><em>Жағдай:</em> Оқыту жиынтығында нәтиже керемет, бірақ тест жиынтығында нашар.</li>
-                <li><em>Себебі:</em> Модель заңдылықты емес, деректердегі "шуды" немесе кездейсоқтықтарды жаттап алған.</li>
-                <li><em>Шешімі:</em> Регуляризация (Dropout), деректерді көбейту немесе модельді қарапайым ету.</li>
-            </ul>
-        </li>
-        <li><strong>Жеткіліксіз оқыту (Underfitting / Жоғары ауытқу):</strong>
-            <ul>
-                <li><em>Жағдай:</em> Оқытуда да, тестте де нәтиже өте төмен.</li>
-                <li><em>Себебі:</em> Модель тым қарапайым (нейрондар немесе қабаттар тым аз).</li>
-                <li><em>Шешімі:</em> Модельдің сыйымдылығын арттыру, оқыту уақытын ұзарту.</li>
-            </ul>
-        </li>
+      <li><strong>Артық оқыту (Overfitting / Жоғары дисперсия):</strong>
+        <ul>
+          <li><em>Жағдай:</em> Оқыту жиынтығында нәтиже керемет, бірақ тест жиынтығында нашар.</li>
+          <li><em>Себебі:</em> Модель заңдылықты емес, деректердегі "шуды" немесе кездейсоқтықтарды жаттап алған.</li>
+          <li><em>Шешімі:</em> Регуляризация (Dropout), деректерді көбейту немесе модельді қарапайым ету.</li>
+        </ul>
+      </li>
+      <li><strong>Жеткіліксіз оқыту (Underfitting / Жоғары ауытқу):</strong>
+        <ul>
+          <li><em>Жағдай:</em> Оқытуда да, тестте де нәтиже өте төмен.</li>
+          <li><em>Себебі:</em> Модель тым қарапайым (нейрондар немесе қабаттар тым аз).</li>
+          <li><em>Шешімі:</em> Модельдің сыйымдылығын арттыру, оқыту уақытын ұзарту.</li>
+        </ul>
+      </li>
     </ul>
 
     <h4>2.2. Оқу қисығы (Learning Curve)</h4>
     <p>Бұл — модельдің қателігінің (Loss) немесе дәлдігінің (Accuracy) уақытқа қатысты графигі.</p>
-    
-    
 
     <ul>
-        <li><strong>Идеалды қисық:</strong> Оқыту және валидациялық шығын бірге азайып, тұрақтанады.</li>
-        <li><strong>Артық оқыту белгісі:</strong> Оқыту шығыны азая береді, бірақ валидациялық шығын арта бастайды (екі сызық алшақтайды).</li>
+      <li><strong>Идеалды қисық:</strong> Оқыту және валидациялық шығын бірге азайып, тұрақтанады.</li>
+      <li><strong>Артық оқыту белгісі:</strong> Оқыту шығыны азая береді, бірақ валидациялық шығын арта бастайды (екі сызық алшақтайды).</li>
     </ul>
 
     <h4>2.3. TensorBoard-қа кіріспе</h4>
     <p>TensorBoard — TensorFlow құрамына кіретін, модельдің жұмысын нақты уақыт режимінде бақылауға арналған визуализация құралы.</p>
-    
-    
 
     <p><strong>Негізгі мүмкіндіктері:</strong></p>
     <ul>
-        <li><strong>Scalars:</strong> Шығын мен дәлдік метрикаларын график түрінде бақылау.</li>
-        <li><strong>Graphs:</strong> Модель архитектурасын және тензорлардың қозғалысын көру.</li>
-        <li><strong>Histograms:</strong> Салмақтар мен ығысулардың таралуын бақылау.</li>
+      <li><strong>Scalars:</strong> Шығын мен дәлдік метрикаларын график түрінде бақылау.</li>
+      <li><strong>Graphs:</strong> Модель архитектурасын және тензорлардың қозғалысын көру.</li>
+      <li><strong>Histograms:</strong> Салмақтар мен ығысулардың таралуын бақылау.</li>
     </ul>
 
     <h4>2.4. TensorBoard-ты іске асыру</h4>
     <p>TensorBoard-ты қолдану үшін Keras-тың кері байланыс (callback) функциясын пайдаланамыз:</p>
 
-    <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>import datetime
+    <pre><code>import datetime
 import tensorflow as tf
 from tensorflow.keras.callbacks import TensorBoard
 
@@ -74,11 +68,13 @@ log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
 tensorboard_callback = TensorBoard(log_dir=log_dir, histogram_freq=1)
 
 # 3. Модельді оқыту кезінде callback-ты қосу
-model.fit(x=x_train, 
-          y=y_train, 
-          epochs=5, 
-          validation_data=(x_test, y_test), 
-          callbacks=[tensorboard_callback])</code></pre>
+model.fit(
+    x=x_train,
+    y=y_train,
+    epochs=5,
+    validation_data=(x_test, y_test),
+    callbacks=[tensorboard_callback]
+)</code></pre>
 
     <h3>3. Түйін</h3>
     <ul>
@@ -88,77 +84,81 @@ model.fit(x=x_train,
     </ul>
 
     <h3>4. Ойланып көр! (Практикалық тапсырма)</h3>
-    <div style="background-color: #fff3cd; padding: 15px; border-radius: 5px; border: 1px solid #ffeeba;">
-        <p><strong>Сценарий:</strong> Сіз MNIST деректер жиынында модельді оқытып жатырсыз. Салмақтардың таралуын қадағалау үшін TensorBoard-ты іске қосуыңыз керек.</p>
-        <p><strong>Тапсырма:</strong> Төмендегі кодтағы бос орындарды толтырыңыз.</p>
-        <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 10px; border-radius: 5px;"><code>from tensorflow.keras.callbacks import TensorBoard
+    <div style="background-color: #fff3cd; padding: 15px; border-radius: 8px; border: 1px solid #ffeeba;"
+    <p><strong>Сценарий:</strong> Сіз MNIST деректер жиынында модельді оқытып жатырсыз. Салмақтардың таралуын қадағалау үшін TensorBoard-ты іске қосуыңыз керек.</p>
+    <p><strong>Тапсырма:</strong> Төмендегі кодтағы бос орындарды толтырыңыз.</p>
+
+    <pre><code>from tensorflow.keras.callbacks import TensorBoard
 
 # 1. TensorBoard callback-ын анықтаңыз (лог қалтасын 'logs/run1' деп атаңыз)
 tb_callback = TensorBoard(log_dir=________, histogram_freq=__)
 
 # 2. Модельді оқыту кезінде callback-ты тізім ретінде беріңіз
-model.fit(train_images, train_labels, epochs=5, callbacks=[_______])</code></pre>
-        <details>
-            <summary style="cursor: pointer; color: #0d6efd;">Жауапты көру</summary>
-            <div style="margin-top: 10px;">
-                <p>1. <code>log_dir='logs/run1', histogram_freq=1</code></p>
-                <p>2. <code>callbacks=[tb_callback]</code></p>
-            </div>
-        </details>
-    </div>
+model.fit(
+    train_images,
+    train_labels,
+    epochs=5,
+    callbacks=[_______]
+)</code></pre>
+
+    <details>
+      <summary>Жауапты көру</summary>
+      <p>1. <code>log_dir='logs/run1', histogram_freq=1</code></p>
+      <p>2. <code>callbacks=[tb_callback]</code></p>
+    </details>
   `,
-    quiz: [
-        {
-            question: "Оқыту деректерінде өте жақсы нәтиже көрсетіп, бірақ жаңа деректерде нашар жұмыс істейтін модель қандай мәселеге ұшыраған?",
-            options: [
-                "Жоғары ауытқу (Underfitting)",
-                "Жоғары дисперсия (Overfitting)",
-                "Градиенттің жоғалуы",
-                "Деректерді нормализациялау"
-            ],
-            correctAnswer: 1 // B
-        },
-        {
-            question: "Оқу қисығындағы (Learning Curve) артық оқытудың басты белгісі қандай?",
-            options: [
-                "Оқыту және валидациялық шығындар бірге азаяды",
-                "Оқыту шығыны өзгеріссіз қалып, валидациялық шығын азаяды",
-                "Оқыту шығыны азаяды, бірақ валидациялық шығын арта бастайды (алшақтайды)",
-                "Екі шығын да бір деңгейде қатып қалады"
-            ],
-            correctAnswer: 2 // C
-        },
-        {
-            question: "Нейрондық желі қабаттарының дұрыс қосылғанын (архитектурасын) көру үшін TensorBoard-тың қай мүмкіндігін қолданасыз?",
-            options: [
-                "Histograms",
-                "Scalars",
-                "Graphs",
-                "Projector"
-            ],
-            correctAnswer: 2 // C
-        },
-        {
-            question: "Keras-тағы model.fit(..., callbacks=[tensorboard_callback]) кодындағы callback-тың мақсаты не?",
-            options: [
-                "Егер дәлдік төмен болса, оқытуды тоқтату",
-                "Оқыту жылдамдығын қолмен реттеу",
-                "Оқыту деректерін (метрикаларды, графиктерді) визуализациялау үшін каталогқа жазу",
-                "Видеокартаның (GPU) жұмысын баяулату"
-            ],
-            correctAnswer: 2 // C
-        },
-        {
-            question: "\"Жеткіліксіз оқыту\" (Underfitting) орын алса, қандай шешім қабылдау керек?",
-            options: [
-                "Модельдің қабаттары мен нейрондарын көбейтіп, модельді күрделі ету",
-                "Деректердің 50%-ын өшіріп тастау",
-                "Оқытуды дереу тоқтату",
-                "Салмақтарды нөлге теңестіру"
-            ],
-            correctAnswer: 0 // A
-        }
-    ]
+  quiz: [
+    {
+      question: "Оқыту деректерінде өте жақсы нәтиже көрсетіп, бірақ жаңа деректерде нашар жұмыс істейтін модель қандай мәселеге ұшыраған?",
+      options: [
+        "Жоғары ауытқу (Underfitting)",
+        "Жоғары дисперсия (Overfitting)",
+        "Градиенттің жоғалуы",
+        "Деректерді нормализациялау"
+      ],
+      correctAnswer: 1
+    },
+    {
+      question: "Оқу қисығындағы (Learning Curve) артық оқытудың басты белгісі қандай?",
+      options: [
+        "Оқыту және валидациялық шығындар бірге азаяды",
+        "Оқыту шығыны өзгеріссіз қалып, валидациялық шығын азаяды",
+        "Оқыту шығыны азаяды, бірақ валидациялық шығын арта бастайды (алшақтайды)",
+        "Екі шығын да бір деңгейде қатып қалады"
+      ],
+      correctAnswer: 2
+    },
+    {
+      question: "Нейрондық желі қабаттарының дұрыс қосылғанын (архитектурасын) көру үшін TensorBoard-тың қай мүмкіндігін қолданасыз?",
+      options: [
+        "Histograms",
+        "Scalars",
+        "Graphs",
+        "Projector"
+      ],
+      correctAnswer: 2
+    },
+    {
+      question: "Keras-тағы model.fit(..., callbacks=[tensorboard_callback]) кодындағы callback-тың мақсаты не?",
+      options: [
+        "Егер дәлдік төмен болса, оқытуды тоқтату",
+        "Оқыту жылдамдығын қолмен реттеу",
+        "Оқыту деректерін (метрикаларды, графиктерді) визуализациялау үшін каталогқа жазу",
+        "Видеокартаның (GPU) жұмысын баяулату"
+      ],
+      correctAnswer: 2
+    },
+    {
+      question: "\"Жеткіліксіз оқыту\" (Underfitting) орын алса, қандай шешім қабылдау керек?",
+      options: [
+        "Модельдің қабаттары мен нейрондарын көбейтіп, модельді күрделі ету",
+        "Деректердің 50%-ын өшіріп тастау",
+        "Оқытуды дереу тоқтату",
+        "Салмақтарды нөлге теңестіру"
+      ],
+      correctAnswer: 0
+    }
+  ]
 };
 
 export default lesson14;

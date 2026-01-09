@@ -19,8 +19,6 @@ const lesson02 = {
 
     <h4>2.1. Тензор дегеніміз не?</h4>
     <p>Математикалық тұрғыдан тензор — бұл векторлар мен матрицалардың көп өлшемді жалпылама түрі. Оларды өлшеміне қарай (Rank) былай бөлеміз:</p>
-    
-    
 
     <ul>
       <li><strong>Rank 0:</strong> Скаляр (жай сан).</li>
@@ -31,16 +29,16 @@ const lesson02 = {
 
     <h4>2.2. Негізгі айырмашылықтар: NumPy және TensorFlow</h4>
     <p>Кодта олар ұқсас көрінгенімен, ішкі логикасы мен қолданылуында үлкен айырмашылық бар:</p>
-    
-    <div style="background-color: #f8f9fa; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
-        <p><strong>🔒 Неліктен тензорлар өзгермейді (Immutable)?</strong></p>
-        <p>Бұл TensorFlow-қа есептеу графигін (computation graph) алдын ала оңтайландыруға мүмкіндік береді. Деректер өзгермейтін болса, жүйе есептеулерді қатесіз және әлдеқайда жылдам жүргізеді.</p>
-    </div>
+
+    <blockquote>
+      <strong>🔒 Неліктен тензорлар өзгермейді (Immutable)?</strong><br/>
+      Бұл TensorFlow-қа есептеу графигін (computation graph) алдын ала оңтайландыруға мүмкіндік береді. Деректер өзгермейтін болса, жүйе есептеулерді қатесіз және әлдеқайда жылдам жүргізеді.
+    </blockquote>
 
     <h4>2.3. Өзара әрекеттесу (Кодпен жұмыс)</h4>
     <p>Деректерді бір форматтан екіншісіне көшіру — ең жиі жасалатын операция:</p>
 
-    <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>import numpy as np
+    <pre><code>import numpy as np
 import tensorflow as tf
 
 # 1. NumPy-ден Тензорға айналдыру
@@ -60,20 +58,23 @@ back_to_np = tensor.numpy()</code></pre>
     </ul>
 
     <h3>4. Ойланып көр! (Практикалық тапсырма)</h3>
-    <div style="background-color: #fff3cd; padding: 15px; border-radius: 5px; border: 1px solid #ffeeba;">
-        <p><strong>Сценарий:</strong> Әзірлеуші тензордағы мәнді NumPy-дегідей өзгертпекші болды:</p>
-        <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 10px; border-radius: 5px;"><code>import tensorflow as tf
+    <div style="background-color: #fff3cd; padding: 15px; border-radius: 8px; border: 1px solid #ffeeba;">
+      <p><strong>Сценарий:</strong> Әзірлеуші тензордағы мәнді NumPy-дегідей өзгертпекші болды:</p>
+
+      <pre><code>import tensorflow as tf
 my_tensor = tf.constant([1, 2, 3])
 my_tensor[0] = 100 # Мұнда қате (Error) шығады</code></pre>
-        <p><strong>Тапсырма:</strong></p>
-        <ol>
-            <li>Неліктен бұл код қате береді?</li>
-            <li>Егер деректерді міндетті түрде өзгерту керек болса, қандай екі шешім ұсынар едіңіз?</li>
-        </ol>
-        <details>
-            <summary style="cursor: pointer; color: #0d6efd;">Жауапты (Подсказка) көру</summary>
-            <p style="margin-top: 10px;">Тензорлар өзгермейді (immutable). <br><strong>Шешімі:</strong> Не манипуляцияларды алдымен NumPy-де жасап, сосын тензорға айналдыру керек, не <code>tf.Variable</code> құрылымын пайдалану қажет.</p>
-        </details>
+
+      <p><strong>Тапсырма:</strong></p>
+      <ol>
+        <li>Неліктен бұл код қате береді?</li>
+        <li>Егер деректерді міндетті түрде өзгерту керек болса, қандай екі шешім ұсынар едіңіз?</li>
+      </ol>
+
+      <details>
+        <summary>Жауапты (Подсказка) көру</summary>
+        <p>Тензорлар өзгермейді (immutable). <br/><strong>Шешімі:</strong> Не манипуляцияларды алдымен NumPy-де жасап, сосын тензорға айналдыру керек, не <code>tf.Variable</code> құрылымын пайдалану қажет.</p>
+      </details>
     </div>
   `,
   quiz: [
@@ -85,7 +86,7 @@ my_tensor[0] = 100 # Мұнда қате (Error) шығады</code></pre>
         "Олар тек Windows-та жұмыс істейді",
         "Олар кез келген бағдарламалау тілінде қол жетімді"
       ],
-      correctAnswer: 1 // B
+      correctAnswer: 1
     },
     {
       question: "Тензорлардың 'өзгермейтіндігі' (Immutability) не үшін қажет?",
@@ -95,7 +96,7 @@ my_tensor[0] = 100 # Мұнда қате (Error) шығады</code></pre>
         "Кодты ұзағырақ жазу үшін",
         "Қателерді көбейту үшін"
       ],
-      correctAnswer: 1 // B
+      correctAnswer: 1
     },
     {
       question: "Нейрондық желілердің 'оқу' механизмі үшін тензорлардың қай қасиеті өте маңызды?",
@@ -105,7 +106,7 @@ my_tensor[0] = 100 # Мұнда қате (Error) шығады</code></pre>
         "Тек сандарды сақтау қабілеті",
         "Python-сыз жұмыс істеуі"
       ],
-      correctAnswer: 1 // B
+      correctAnswer: 1
     },
     {
       question: "TensorFlow тензорын NumPy массивіне қалай айналдырамыз?",
@@ -115,7 +116,7 @@ my_tensor[0] = 100 # Мұнда қате (Error) шығады</code></pre>
         ".numpy()",
         ".make_array()"
       ],
-      correctAnswer: 2 // C
+      correctAnswer: 2
     },
     {
       question: "NumPy массивін тензорға айналдырғанда 'терең көшірме' (deep copy) жасалады деген нені білдіреді?",
@@ -125,7 +126,7 @@ my_tensor[0] = 100 # Мұнда қате (Error) шығады</code></pre>
         "Бірін өзгертсең, екіншісі де автоматты түрде өзгереді",
         "Бұл бағдарламаны баяулатады"
       ],
-      correctAnswer: 1 // B
+      correctAnswer: 1
     }
   ]
 };

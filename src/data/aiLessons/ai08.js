@@ -2,7 +2,9 @@ const ai08 = {
   id: 8,
   title: "Text → Image & Video",
   content: `
+  <section class="lesson-section intro">
     <h2>🧠 8-сабақ. Text → Image & Video</h2>
+
     <p><strong>Тақырып:</strong> Grok Imaging арқылы мәтіннен сурет және видео жасау</p>
     <p><strong>Ұзақтығы:</strong> ~40 минут</p>
 
@@ -13,10 +15,13 @@ const ai08 = {
         сурет (image) және қысқа видео (video) жасауды үйренесіз.
       </em>
     </p>
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section">
     <h3>1️⃣ Text → Image & Video деген не?</h3>
+
     <p>
       <strong>Text → Image & Video</strong> — бұл
       мәтіндік сипаттама (промпт) арқылы
@@ -30,10 +35,13 @@ const ai08 = {
       <li>Сол идеядан сурет жасау</li>
       <li>Сол промптпен қысқа видео генерациялау</li>
     </ul>
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section">
     <h3>2️⃣ Қолданылатын сервис және қосымшаны орнату</h3>
+
     <p>
       Бұл сабақта <strong>Grok</strong> жасанды интеллектінің
       <strong>Imaging</strong> бөлімі қолданылады.
@@ -50,30 +58,27 @@ const ai08 = {
       <li>Imaging бөлімін таңдаңыз</li>
     </ul>
 
-    <img
-      src="/assets/aiLessons/ai08/1.webp"
-      alt="Grok app Imaging section"
-      style="max-width:20%; margin:20px 0;"
-    />
+    <img src="/assets/aiLessons/ai08/1.webp" alt="Grok app Imaging section" />
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section">
     <h3>3️⃣ Қалай және не үшін қолдануға болады?</h3>
+
     <ul>
       <li>Креатив визуал идеяны тез тексеру</li>
       <li>Image → Video логикасын практикада көру</li>
       <li>Қысқа видео сценалар жасау</li>
       <li>AI визуалмен эксперимент жасау</li>
     </ul>
-    
-    <img
-      src="/assets/aiLessons/ai08/123.jpg"
-      alt="Grok app Imaging section"
-      style="max-width:20%; margin:20px 0;"
-    />
 
-    <hr/>
+    <img src="/assets/aiLessons/ai08/123.jpg" alt="Grok app Imaging section" />
+  </section>
 
+  <hr/>
+
+  <section class="lesson-section examples">
     <h3>4️⃣ Тірі мысалдар — 3 промпт</h3>
 
     <h4>🔹 Мысал №1. Қалалық кинематографиялық көрініс</h4>
@@ -83,11 +88,10 @@ neon lights, wet streets,
 slow camera movement,
 dark atmosphere, high detail.
     </pre>
-    
-<video width="480" controls>
-    <source src="/assets/aiLessons/ai08/1.MP4" type="video/mp4">
-    Ваш браузер не поддерживает видео.
-</video>
+
+    <video controls>
+      <source src="/assets/aiLessons/ai08/1.MP4" type="video/mp4">
+    </video>
 
     <h4>🔹 Мысал №2. Табиғат және тыныш атмосфера</h4>
     <pre>
@@ -96,11 +100,10 @@ soft warm light,
 slow moving clouds,
 peaceful cinematic mood.
     </pre>
-    
-    <video width="480" controls>
-    <source src="/assets/aiLessons/ai08/2.MP4" type="video/mp4">
-    Ваш браузер не поддерживает видео.
-</video>
+
+    <video controls>
+      <source src="/assets/aiLessons/ai08/2.MP4" type="video/mp4">
+    </video>
 
     <h4>🔹 Мысал №3. Абстракт цифрлық стиль</h4>
     <pre>
@@ -110,14 +113,15 @@ smooth motion,
 dark background,
 digital art style.
     </pre>
-    
-   <video width="480" controls>
-    <source src="/assets/aiLessons/ai08/3.MP4" type="video/mp4">
-    Ваш браузер не поддерживает видео.
-</video>
 
-    <hr/>
+    <video controls>
+      <source src="/assets/aiLessons/ai08/3.MP4" type="video/mp4">
+    </video>
+  </section>
 
+  <hr/>
+
+  <section class="lesson-section mistakes">
     <h3>5️⃣ Жиі кездесетін қателер</h3>
 
     <p>
@@ -136,16 +140,19 @@ digital art style.
       қандай қозғалыс —
       нақты жазу.
     </p>
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section conclusion">
     <h3>6️⃣ Қорытынды</h3>
+
     <ul>
       <li>Text → Image & Video логикасын түсіндіңіз</li>
       <li>Grok қосымшасын қолдануды үйрендіңіз</li>
       <li>Imaging арқылы image және video жасауды меңгердіңіз</li>
     </ul>
-
+  </section>
   `
 };
 

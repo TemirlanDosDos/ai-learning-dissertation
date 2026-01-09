@@ -2,7 +2,9 @@ const ai07 = {
   id: 7,
   title: "Text → Code",
   content: `
+  <section class="lesson-section intro">
     <h2>🧠 7-сабақ. Text → Code</h2>
+
     <p><strong>Тақырып:</strong> Gemini көмегімен код жаздыру</p>
     <p><strong>Ұзақтығы:</strong> ~40 минут</p>
 
@@ -12,10 +14,13 @@ const ai07 = {
         толық жұмыс істейтін код алуды үйренесіз.
       </em>
     </p>
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section">
     <h3>1️⃣ Text → Code деген не?</h3>
+
     <p>
       <strong>Text → Code</strong> — бұл
       жасанды интеллектке тапсырманы сөзбен айтып,
@@ -28,13 +33,14 @@ const ai07 = {
       <li>Сайт құрастыру</li>
       <li>Логиканы ИИ-ге жүктеу</li>
     </ul>
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section">
     <h3>2️⃣ Қолданылатын сервис</h3>
-    <p>
-      Бұл сабақта <strong>Gemini</strong> қолданылады.
-    </p>
+
+    <p>Бұл сабақта <strong>Gemini</strong> қолданылады.</p>
 
     <p>
       👉 <a href="https://gemini.google.com" target="_blank">
@@ -48,27 +54,26 @@ const ai07 = {
       <li>Үлкен код жаза алады</li>
     </ul>
 
-    <img
-      src="/assets/aiLessons/ai02/555.webp"
-      alt="AI ML DL Diagram"
-      style="max-width:20%; margin:20px 0;"
-    />
+    <img src="/assets/aiLessons/ai02/555.webp" alt="AI ML DL Diagram" />
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section">
     <h3>3️⃣ Қалай дұрыс тапсырма беру керек?</h3>
-    <p>
-      Gemini-ден сапалы код алу үшін тапсырмада:
-    </p>
+
+    <p>Gemini-ден сапалы код алу үшін тапсырмада:</p>
 
     <ul>
       <li>Қай тілде жазу керегі</li>
       <li>Нақты не жасау керек</li>
       <li>Қандай кітапхана қолдану</li>
     </ul>
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section examples">
     <h3>4️⃣ Тірі мысалдар — 3 тапсырма</h3>
 
     <h4>🔹 Мысал №1. Python — геометрия арқылы жүрек</h4>
@@ -80,12 +85,7 @@ matplotlib қолданып,
 График әдемі көрінуі керек.
     </pre>
 
-    <img
-      src="/assets/aiLessons/ai07/1.jpg"
-      alt="AI ML DL Diagram"
-      style="max-width:35%; margin:20px 0;"
-    />
-
+    <img src="/assets/aiLessons/ai07/1.jpg" alt="AI ML DL Diagram" />
 
     <h4>🔹 Мысал №2. HTML — өте стильді сайт</h4>
     <pre>
@@ -96,11 +96,7 @@ Gradient фон, үлкен тақырып,
 Код толық дайын болсын.
     </pre>
 
-    <img
-      src="/assets/aiLessons/ai07/2.jpg"
-      alt="AI ML DL Diagram"
-      style="max-width:35%; margin:20px 0;"
-    />
+    <img src="/assets/aiLessons/ai07/2.jpg" alt="AI ML DL Diagram" />
 
     <h4>🔹 Мысал №3. Python — Pong ойыны</h4>
     <pre>
@@ -111,29 +107,19 @@ Python тілінде pygame қолданып,
 Код толық жұмыс істесін.
     </pre>
 
-    <img
-      src="/assets/aiLessons/ai07/3.jpg"
-      alt="AI ML DL Diagram"
-      style="max-width:35%; margin:20px 0;"
-    />
+    <img src="/assets/aiLessons/ai07/3.jpg" alt="AI ML DL Diagram" />
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section mistakes">
     <h3>5️⃣ Жиі кездесетін қателер</h3>
 
-    <p>
-      ❌ <code>Код жаз</code>
-    </p>
-    <p>
-      Себебі: тіл, логика және нәтиже көрсетілмеген.
-    </p>
+    <p>❌ <code>Код жаз</code></p>
+    <p>Себебі: тіл, логика және нәтиже көрсетілмеген.</p>
 
-    <p>
-      ❌ <code>Ойын жаса</code>
-    </p>
-    <p>
-      Себебі: қандай ойын, қандай технология белгісіз.
-    </p>
+    <p>❌ <code>Ойын жаса</code></p>
+    <p>Себебі: қандай ойын, қандай технология белгісіз.</p>
 
     <p>
       Дұрыс тәсіл —
@@ -141,10 +127,13 @@ Python тілінде pygame қолданып,
       нақты кітапхана,
       нақты нәтиже жазу.
     </p>
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section conclusion">
     <h3>6️⃣ Қорытынды</h3>
+
     <ul>
       <li>Text → Code логикасын түсіндіңіз</li>
       <li>Gemini арқылы үлкен код алуды үйрендіңіз</li>
@@ -152,6 +141,7 @@ Python тілінде pygame қолданып,
     </ul>
 
     <p><strong>Келесі сабақ:</strong> Text → Video</p>
+  </section>
   `
 };
 

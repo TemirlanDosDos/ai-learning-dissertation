@@ -2,7 +2,9 @@ const ai03 = {
   id: 3,
   title: "Text → Speech",
   content: `
+  <section class="lesson-section intro">
     <h2>🧠 3-сабақ. Text → Speech</h2>
+
     <p><strong>Тақырып:</strong> ElevenLabs сайтында мәтінді дауысқа айналдыру</p>
     <p><strong>Ұзақтығы:</strong> ~40 минут</p>
 
@@ -13,11 +15,13 @@ const ai03 = {
         табиғи адам дауысына айналдыруды үйренесіз.
       </em>
     </p>
+  </section>
 
+  <hr/>
 
-    <hr/>
-
+  <section class="lesson-section">
     <h3>1️⃣ Text → Speech деген не?</h3>
+
     <p>
       <strong>Text → Speech</strong> — бұл мәтінді
       жасанды интеллект арқылы адам дауысына ұқсас
@@ -30,10 +34,13 @@ const ai03 = {
       <li>Подкаст пен дикторлық дауыс</li>
       <li>Ойын және презентация</li>
     </ul>
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section">
     <h3>2️⃣ ElevenLabs сайтына кіру</h3>
+
     <p>
       ElevenLabs сайтында мәтінді дауысқа айналдыруды
       <strong>тіркелмей-ақ</strong> көруге болады.
@@ -50,18 +57,15 @@ const ai03 = {
       <strong>Text to Speech</strong> батырмасын таңдаңыз.
     </p>
 
-    <img
-      src="/assets/aiLessons/ai03/ai.jpg"
-      alt="AI ML DL Diagram"
-      style="max-width:30%; margin:20px 0;"
-    />
+    <img src="/assets/aiLessons/ai03/ai.jpg" alt="AI ML DL Diagram" />
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section">
     <h3>3️⃣ Интерфейс қалай жұмыс істейді?</h3>
-    <p>
-      Text to Speech бөлімінде келесі элементтер бар:
-    </p>
+
+    <p>Text to Speech бөлімінде келесі элементтер бар:</p>
 
     <ul>
       <li><strong>Мәтін жазу орны</strong> — мәтін енгізу үшін</li>
@@ -70,15 +74,14 @@ const ai03 = {
       <li><strong>Play</strong> батырмасы — дыбысты тыңдау</li>
     </ul>
 
-    <img
-      src="/assets/aiLessons/ai03/1.jpg"
-      alt="AI ML DL Diagram"
-      style="max-width:20%; margin:20px 0;"
-    />
+    <img src="/assets/aiLessons/ai03/1.jpg" alt="AI ML DL Diagram" />
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section">
     <h3>4️⃣ Қадамдап нұсқаулық</h3>
+
     <ol>
       <li>elevenlabs.io сайтына кіріңіз</li>
       <li>Text to Speech бөлімін ашыңыз</li>
@@ -87,10 +90,11 @@ const ai03 = {
       <li>Мәтінді арнайы орынға жазыңыз</li>
       <li><strong>Play</strong> батырмасын басыңыз</li>
     </ol>
+  </section>
 
+  <hr/>
 
-    <hr/>
-
+  <section class="lesson-section examples">
     <h3>5️⃣ Стильді және сапалы промпттар (ElevenLabs стилі)</h3>
 
     <h4>🔹 Промпт №1. Кинематографиялық кіріспе</h4>
@@ -102,8 +106,8 @@ const ai03 = {
     </pre>
 
     <audio controls>
-  <source src="/assets/aiLessons/ai03/11.mp3" type="audio/mpeg">
-</audio>
+      <source src="/assets/aiLessons/ai03/11.mp3" type="audio/mpeg">
+    </audio>
 
     <h4>🔹 Промпт №2. Әңгіме стилі (storytelling)</h4>
     <pre>
@@ -113,8 +117,8 @@ const ai03 = {
     </pre>
 
     <audio controls>
-  <source src="/assets/aiLessons/ai03/22.mp3" type="audio/mpeg">
-</audio>
+      <source src="/assets/aiLessons/ai03/22.mp3" type="audio/mpeg">
+    </audio>
 
     <h4>🔹 Промпт №3. Мотивациялық дауыс</h4>
     <pre>
@@ -126,22 +130,23 @@ const ai03 = {
     </pre>
 
     <audio controls>
-  <source src="/assets/aiLessons/ai03/33.mp3" type="audio/mpeg">
-</audio>
+      <source src="/assets/aiLessons/ai03/33.mp3" type="audio/mpeg">
+    </audio>
+  </section>
 
-    <hr/>
+  <hr/>
 
+  <section class="lesson-section conclusion">
     <h3>7️⃣ Қорытынды</h3>
+
     <ul>
       <li>Text → Speech қалай жұмыс істейтінін түсіндіңіз</li>
       <li>ElevenLabs сайтында тіркелмей қолдануды үйрендіңіз</li>
       <li>Дауыс сапасына мәтіннің әсерін білдіңіз</li>
     </ul>
 
-    <!-- IMAGE 10 -->
-    <!-- СУРЕТ: мәтін → дыбыс салыстыру -->
-
     <p><strong>Келесі сабақ:</strong> Audio → Text</p>
+  </section>
   `
 };
 

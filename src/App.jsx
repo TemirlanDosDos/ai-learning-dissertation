@@ -12,6 +12,12 @@ export default function App() {
   const [showRegister, setShowRegister] = useState(false);
 
   useEffect(() => {
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+      document.body.classList.add("dark");
+    }
+
     const unsub = onAuthStateChanged(auth, async (user) => {
       if (!user) {
         setUserData(null);
@@ -55,16 +61,10 @@ export default function App() {
       <Register onRegister={() => setShowRegister(false)} />
     ) : (
       <div>
-        <Login onLogin={() => {}} />
-        <p style={{ textAlign: "center", marginTop: 20 }}>
-          Аккаунт жоқ па?{" "}
-          <button
-            className="register-button"
-            onClick={() => setShowRegister(true)}
-          >
-            Тіркелу
-          </button>
-        </p>
+        <Login onLogin={(action) => {
+          if (action === "register") setShowRegister(true);
+        }} />
+
       </div>
     );
   }

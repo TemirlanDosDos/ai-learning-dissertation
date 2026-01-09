@@ -19,40 +19,34 @@ const lesson04 = {
 
     <h4>2.1. Қайта пішіндеу және Тегістеу (Reshape & Flatten)</h4>
     <p><code>tf.reshape</code> — тензордағы деректерді өзгертпей, тек олардың орналасу тәртібі мен құрылымын өзгертеді.</p>
-    
-    
 
     <p><strong>Flattening (Тегістеу):</strong> Суреттерді қарапайым (Dense) желілерге бергенде, оларды 1D векторға айналдыру керек. Ол үшін <code>-1</code> параметрін қолдану өте ыңғайлы. TensorFlow элементтердің жалпы санына қарай өлшемді өзі есептейді.</p>
 
-    <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>import tensorflow as tf
+    <pre><code>import tensorflow as tf
 
 # (28, 28) пішінді суретті (784,) векторға айналдыру
 flattened = tf.reshape(image, [-1])</code></pre>
 
     <h4>2.2. Өлшемдерді қосу және алып тастау</h4>
     <p>Нейрондық желілер әрқашан деректерді «пакетпен» (batch) қабылдайды. Тіпті сізде бір ғана сурет болса да, модель оның «1 суреттен тұратын пакет» екенін білуі керек.</p>
-    
-    
 
     <ul>
-        <li><code>tf.expand_dims</code>: Көрсетілген ось бойынша жаңа өлшем қосады. (Мысалы, <code>(28, 28)</code> -> <code>(1, 28, 28)</code>).</li>
-        <li><code>tf.squeeze</code>: Көлемі 1-ге тең қажетсіз өлшемдерді (артық «қабықшаларды») алып тастайды.</li>
+      <li><code>tf.expand_dims</code>: Көрсетілген ось бойынша жаңа өлшем қосады. (Мысалы, <code>(28, 28)</code> → <code>(1, 28, 28)</code>).</li>
+      <li><code>tf.squeeze</code>: Көлемі 1-ге тең қажетсіз өлшемдерді (артық «қабықшаларды») алып тастайды.</li>
     </ul>
 
     <h4>2.3. Арналар және Транспонирлеу (Transpose)</h4>
     <p>Кескіндермен жұмыс істегенде «Арна» (Channel — R, G, B) өлшемі қай жерде тұруы керектігі маңызды:</p>
     <ul>
-        <li><strong>Channel Last:</strong> (Height, Width, Channel) — TensorFlow стандарты.</li>
-        <li><strong>Channel First:</strong> (Channel, Height, Width) — кейбір басқа кітапханалар (мысалы, PyTorch) стандарты.</li>
+      <li><strong>Channel Last:</strong> (Height, Width, Channel) — TensorFlow стандарты.</li>
+      <li><strong>Channel First:</strong> (Channel, Height, Width) — кейбір басқа кітапханалар (мысалы, PyTorch) стандарты.</li>
     </ul>
-    
-    
 
     <p>Форматтарды ауыстыру үшін <code>tf.transpose</code> қолданылады.</p>
-    
-    <div style="background-color: #ffe6e6; padding: 15px; border-radius: 5px; border-left: 5px solid #dc3545;">
-        <strong>⚠️ Назар аударыңыз:</strong> Мұнда <code>reshape</code> қолдануға болмайды! Себебі reshape пиксельдердің мағыналық ретін бұзып жібереді, ал transpose осьтердің орнын ауыстырады.
-    </div>
+
+    <blockquote>
+      <strong>⚠️ Назар аударыңыз:</strong> Мұнда <code>reshape</code> қолдануға болмайды! Себебі reshape пиксельдердің мағыналық ретін бұзып жібереді, ал transpose осьтердің орнын ауыстырады.
+    </blockquote>
 
     <h3>3. Түйін</h3>
     <ul>
@@ -62,20 +56,20 @@ flattened = tf.reshape(image, [-1])</code></pre>
     </ul>
 
     <h3>4. Ойланып көр! (Практикалық тапсырма)</h3>
-    <div style="background-color: #fff3cd; padding: 15px; border-radius: 5px; border: 1px solid #ffeeba;">
-        <p><strong>Сценарий:</strong> Сізде пішіні <code>(28, 28)</code> болатын сурет бар. Сізге оны Keras моделіне <code>(1, 28, 28)</code> пішінінде беру керек.</p>
-        <p><strong>Тапсырма:</strong></p>
-        <ol>
-            <li>Егер сіз суреттің нақты өлшемін (мысалы, оның 28 екенін) алдын ала білмесеңіз, қай әдіс қауіпсіз әрі әмбебап: reshape ба, әлде expand_dims ба?</li>
-            <li><code>tf.reshape(image, [-1])</code> командасын орындаған соң тензордың жаңа пішіні қандай болады?</li>
-        </ol>
-        <details>
-            <summary style="cursor: pointer; color: #0d6efd;">Жауапты көру</summary>
-            <p style="margin-top: 10px;">
-                1. <code>expand_dims</code> қауіпсіз, өйткені ол нақты өлшемдерге (28x28) тәуелді емес, тек жаңа ось қосады.<br>
-                2. Нәтижесі: ұзындығы 784 болатын 1D вектор <code>(784,)</code>.
-            </p>
-        </details>
+    <div style="background-color: #fff3cd; padding: 15px; border-radius: 8px; border: 1px solid #ffeeba;">
+      <p><strong>Сценарий:</strong> Сізде пішіні <code>(28, 28)</code> болатын сурет бар. Сізге оны Keras моделіне <code>(1, 28, 28)</code> пішінінде беру керек.</p>
+      <p><strong>Тапсырма:</strong></p>
+      <ol>
+        <li>Егер сіз суреттің нақты өлшемін (мысалы, оның 28 екенін) алдын ала білмесеңіз, қай әдіс қауіпсіз әрі әмбебап: reshape ба, әлде expand_dims ба?</li>
+        <li><code>tf.reshape(image, [-1])</code> командасын орындаған соң тензордың жаңа пішіні қандай болады?</li>
+      </ol>
+      <details>
+        <summary>Жауапты көру</summary>
+        <p>
+          1. <code>expand_dims</code> қауіпсіз, өйткені ол нақты өлшемдерге (28×28) тәуелді емес, тек жаңа ось қосады.<br/>
+          2. Нәтижесі: ұзындығы 784 болатын 1D вектор <code>(784,)</code>.
+        </p>
+      </details>
     </div>
   `,
   quiz: [
@@ -87,7 +81,7 @@ flattened = tf.reshape(image, [-1])</code></pre>
         "Ол тек оң сандармен ғана жұмыс істейді",
         "Оны тек GPU-да қолдануға болады"
       ],
-      correctAnswer: 1 // B
+      correctAnswer: 1
     },
     {
       question: "(28, 28) пішінін (1, 28, 28) етіп өзгерту үшін қай функция ең қолайлы?",
@@ -97,7 +91,7 @@ flattened = tf.reshape(image, [-1])</code></pre>
         "tf.expand_dims()",
         "tf.slice()"
       ],
-      correctAnswer: 2 // C
+      correctAnswer: 2
     },
     {
       question: "tf.reshape(tensor, [2, -1]) командасындағы -1 нені білдіреді?",
@@ -107,7 +101,7 @@ flattened = tf.reshape(image, [-1])</code></pre>
         "Барлық деректерді теріс сандарға айналдырады",
         "Бірінші бағанды алып тастайды"
       ],
-      correctAnswer: 0 // A
+      correctAnswer: 0
     },
     {
       question: "Кескінді (H, W, C) форматынан (C, H, W) форматына ауыстыру үшін не қолданылады?",
@@ -117,7 +111,7 @@ flattened = tf.reshape(image, [-1])</code></pre>
         "tf.constant",
         "tf.cast"
       ],
-      correctAnswer: 1 // B
+      correctAnswer: 1
     },
     {
       question: "tf.squeeze функциясының негізгі қызметі қандай?",
@@ -127,7 +121,7 @@ flattened = tf.reshape(image, [-1])</code></pre>
         "Барлық мәндерді 0 мен 1 арасына келтіру",
         "Матрицаларды бір-біріне көбейту"
       ],
-      correctAnswer: 1 // B
+      correctAnswer: 1
     }
   ]
 };

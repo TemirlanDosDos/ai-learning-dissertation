@@ -1,8 +1,8 @@
 const lesson13 = {
-    id: 13,
-    title: "13-сабақ: Оптимизатор (Градиентті түсу)",
-    description: "Градиентті түсу концепциясы, Adam vs Mini-Batch және Оқыту жылдамдығының кестелері.",
-    content: `
+  id: 13,
+  title: "13-сабақ: Оптимизатор (Градиентті түсу)",
+  description: "Градиентті түсу концепциясы, Adam vs Mini-Batch және Оқыту жылдамдығының кестелері.",
+  content: `
     <h3>Оқу мақсаттары:</h3>
     <ul>
       <li>"Таудан түсу" аналогиясын қолданып, Градиентті түсу (Gradient Descent) концепциясын түсіндіру.</li>
@@ -18,53 +18,53 @@ const lesson13 = {
 
     <h4>2.1. Таудан түсу: Градиентті түсу</h4>
     <p><strong>Оңтайландыру (Optimization)</strong> — бұл шығын функциясын минималдау үшін модель салмақтарын итерациялық түрде жетілдіру процесі.</p>
-    
-    
 
     <ul>
-        <li><strong>Стратегия:</strong> Алгоритм шығын функциясының градиентін (көлбеуін) есептейді. Содан кейін ол салмақтарды градиентке қарама-қарсы бағытта — "таудан төмен" қарай жаңартады.</li>
-        <li><strong>Оқыту жылдамдығы (Learning Rate):</strong> Сіз жасайтын қадамның өлшемін анықтайды.</li>
+      <li><strong>Стратегия:</strong> Алгоритм шығын функциясының градиентін (көлбеуін) есептейді. Содан кейін ол салмақтарды градиентке қарама-қарсы бағытта — "таудан төмен" қарай жаңартады.</li>
+      <li><strong>Оқыту жылдамдығы (Learning Rate):</strong> Сіз жасайтын қадамның өлшемін анықтайды.</li>
     </ul>
 
-    
-
-    <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+    <table>
+      <tbody>
         <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;"><strong>Тым кішкентай:</strong></td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Конвергенция (тұрақтану) өте баяу жүреді.</td>
+          <td><strong>Тым кішкентай:</strong></td>
+          <td>Конвергенция (тұрақтану) өте баяу жүреді.</td>
         </tr>
         <tr>
-            <td style="border: 1px solid #ddd; padding: 8px;"><strong>Тым үлкен:</strong></td>
-            <td style="border: 1px solid #ddd; padding: 8px;">Оптимизатор минимумнан аттап өтіп, аңғардың айналасында ретсіз секіруі немесе мүлдем тұрақталмауы мүмкін.</td>
+          <td><strong>Тым үлкен:</strong></td>
+          <td>Оптимизатор минимумнан аттап өтіп, аңғардың айналасында ретсіз секіруі немесе мүлдем тұрақталмауы мүмкін.</td>
         </tr>
+      </tbody>
     </table>
-    
-    <div style="background-color: #e8f4fd; padding: 10px; border-left: 4px solid #2196F3;">
-        <strong>Нормализация:</strong> Оптимизатор әртүрлі айнымалылар бойынша тұрақты қадамдар жасауы үшін, кіріс деректерін ортақ шкалаға келтіру (нормализациялау) өте маңызды.
-    </div>
+
+    <blockquote>
+      <strong>Нормализация:</strong> Оптимизатор әртүрлі айнымалылар бойынша тұрақты қадамдар жасауы үшін, кіріс деректерін ортақ шкалаға келтіру (нормализациялау) өте маңызды.
+    </blockquote>
 
     <h4>2.2. Оптимизаторды таңдау: Adam vs. Mini-Batch</h4>
     <p>Keras бірнеше оптимизатор ұсынады, бірақ іс жүзінде мына екеуі жиі қолданылады:</p>
     <ul>
-        <li><strong>Mini-Batch Gradient Descent:</strong> Бұл әдіс салмақтарды жаңарту алдында деректердің нақты бір "пакеті" (мысалы, 32 немесе 64 сурет) бойынша орташа шығынды есептейді.</li>
-        <li><strong>Adam (Adaptive Moment Estimation):</strong> Ең танымал адаптивті алгоритм. Ол әрбір параметр үшін оқыту жылдамдығын жеке, автоматты түрде реттейді. Алдымен Adam-ды байқап көру — салалық стандарт.</li>
+      <li><strong>Mini-Batch Gradient Descent:</strong> Бұл әдіс салмақтарды жаңарту алдында деректердің нақты бір "пакеті" (мысалы, 32 немесе 64 сурет) бойынша орташа шығынды есептейді.</li>
+      <li><strong>Adam (Adaptive Moment Estimation):</strong> Ең танымал адаптивті алгоритм. Ол әрбір параметр үшін оқыту жылдамдығын жеке, автоматты түрде реттейді. Алдымен Adam-ды байқап көру — салалық стандарт.</li>
     </ul>
 
-    <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>from tensorflow.keras.optimizers import Adam
+    <pre><code>from tensorflow.keras.optimizers import Adam
 
 # Оқыту жылдамдығын (learning rate) қолмен орнату
 adam_optimizer = Adam(learning_rate=0.001)
-model.compile(optimizer=adam_optimizer, loss='binary_crossentropy', metrics=['accuracy'])</code></pre>
+model.compile(
+    optimizer=adam_optimizer,
+    loss='binary_crossentropy',
+    metrics=['accuracy']
+)</code></pre>
 
     <h4>2.3. Оқыту жылдамдығының кестелері (Learning Rate Schedules)</h4>
     <p>Тұрақты оқыту жылдамдығы әрдайым тиімді емес. Идеал жағдайда: басында тез үйрену үшін үлкен қадамдар, ал соңында дәлдік үшін кішірек қадамдар қажет.</p>
-    
-    
 
     <ul>
-        <li><strong>Уақытқа негізделген кему (Time-Based Decay):</strong> Дәуірлер (epochs) артқан сайын жылдамдық біртіндеп азаяды.</li>
-        <li><strong>Сатылы кему (Step Decay):</strong> Жылдамдық әрбір бірнеше дәуір сайын (мысалы, әр 10 дәуірде) нақты бір коэффициентке (мысалы, 0.5) төмендейді.</li>
-        <li><strong>Экспоненциалды кему:</strong> Жылдамдық экспоненциалды қисық бойынша үздіксіз азаяды.</li>
+      <li><strong>Уақытқа негізделген кему (Time-Based Decay):</strong> Дәуірлер (epochs) артқан сайын жылдамдық біртіндеп азаяды.</li>
+      <li><strong>Сатылы кему (Step Decay):</strong> Жылдамдық әрбір бірнеше дәуір сайын (мысалы, әр 10 дәуірде) нақты бір коэффициентке (мысалы, 0.5) төмендейді.</li>
+      <li><strong>Экспоненциалды кему:</strong> Жылдамдық экспоненциалды қисық бойынша үздіксіз азаяды.</li>
     </ul>
 
     <h3>3. Түйін</h3>
@@ -76,84 +76,87 @@ model.compile(optimizer=adam_optimizer, loss='binary_crossentropy', metrics=['ac
     </ul>
 
     <h3>4. Ойланып көр! (Практикалық тапсырма)</h3>
-    <div style="background-color: #fff3cd; padding: 15px; border-radius: 5px; border: 1px solid #ffeeba;">
-        <p><strong>Сценарий:</strong> Сіз оқытудың соңында нәтижені жақсартпай, шешімнің айналасында "секіріп" жүретін модельді оқытып жатырсыз. Сіз оқыту жылдамдығын әр 10 дәуір сайын екі есе азайтатын Сатылы кему (Step Decay) кестесін іске асыруды шештіңіз.</p>
-        <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 10px; border-radius: 5px;"><code>import numpy as np
+    <div style="background-color: #fff3cd; padding: 15px; border-radius: 8px; border: 1px solid #ffeeba;"
+    <p><strong>Сценарий:</strong> Сіз оқытудың соңында нәтижені жақсартпай, шешімнің айналасында "секіріп" жүретін модельді оқытып жатырсыз. Сіз оқыту жылдамдығын әр 10 дәуір сайын екі есе азайтатын Сатылы кему (Step Decay) кестесін іске асыруды шештіңіз.</p>
+
+    <pre><code>import numpy as np
 
 def step_decay(epoch):
     initial_lr = 0.01
     drop_rate = 0.5
     epochs_drop = 10.0
-    lrate = initial_lr * np.power(drop_rate, np.floor((1 + epoch) / epochs_drop))
+    lrate = initial_lr * np.power(
+        drop_rate,
+        np.floor((1 + epoch) / epochs_drop)
+    )
     return lrate</code></pre>
-        <p><strong>Тапсырма:</strong></p>
-        <ol>
-            <li>Егер initial_lr = 0.01 болса, 0-дәуірдегі (Epoch 0) оқыту жылдамдығы қандай болады?</li>
-            <li>9-дәуірдегі (Epoch 9) оқыту жылдамдығы қандай?</li>
-            <li>10-дәуірде (Epoch 10) жылдамдық қалай өзгереді?</li>
-        </ol>
-        <details>
-            <summary style="cursor: pointer; color: #0d6efd;">Жауапты көру</summary>
-            <div style="margin-top: 10px;">
-                <p>1. <strong>0-дәуірде:</strong> 0.01.</p>
-                <p>2. <strong>9-дәуірде:</strong> Ол әлі де 0.01 болып қалады.</p>
-                <p>3. <strong>10-дәуірде:</strong> Ол алғаш рет төмендеп, 0.005 болады.</p>
-            </div>
-        </details>
-    </div>
+
+    <p><strong>Тапсырма:</strong></p>
+    <ol>
+      <li>Егер initial_lr = 0.01 болса, 0-дәуірдегі (Epoch 0) оқыту жылдамдығы қандай болады?</li>
+      <li>9-дәуірдегі (Epoch 9) оқыту жылдамдығы қандай?</li>
+      <li>10-дәуірде (Epoch 10) жылдамдық қалай өзгереді?</li>
+    </ol>
+
+    <details>
+      <summary>Жауапты көру</summary>
+      <p>1. <strong>0-дәуірде:</strong> 0.01.</p>
+      <p>2. <strong>9-дәуірде:</strong> Ол әлі де 0.01 болып қалады.</p>
+      <p>3. <strong>10-дәуірде:</strong> Ол алғаш рет төмендеп, 0.005 болады.</p>
+    </details>
   `,
-    quiz: [
-        {
-            question: "Егер оқыту жылдамдығы (Learning Rate) тым үлкен болса, не болады?",
-            options: [
-                "Оқыту процесі тым баяу жүреді",
-                "Модель ең төменгі нүктеден (минимумнан) аттап өтіп, тұрақталмауы мүмкін",
-                "Модель бірден артық оқытуға (overfitting) ұшырайды",
-                "Шығын функциясы теріс мәнге ие болады"
-            ],
-            correctAnswer: 1 // B
-        },
-        {
-            question: "Адаптивті оқыту үшін әдетте қай оптимизатор ең жақсы \"бірінші таңдау\" болып саналады?",
-            options: [
-                "Zero Initialization",
-                "Adam",
-                "Mini-Batch Gradient Descent",
-                "Random Search"
-            ],
-            correctAnswer: 1 // B
-        },
-        {
-            question: "Градиентті түсуге арналған \"Таудан түсу\" аналогиясында қадамның өлшемін не анықтайды?",
-            options: [
-                "Таудың биіктігі",
-                "Шығын функциясының атауы",
-                "Оқыту жылдамдығы (Learning Rate)",
-                "Пакет өлшемі (Batch Size)"
-            ],
-            correctAnswer: 2 // C
-        },
-        {
-            question: "Қай оқыту жылдамдығының кестесі белгілі бір аралықтарда жылдамдықты азайтып, \"саты\" әсерін жасайды?",
-            options: [
-                "Time-Based Decay",
-                "Exponential Decay",
-                "Step Decay",
-                "Inverse Decay"
-            ],
-            correctAnswer: 2 // C
-        },
-        {
-            question: "Неліктен біз оқыту барысында оқыту жылдамдығын жиі азайтамыз?",
-            options: [
-                "Есептеуді жылдамдату үшін",
-                "Модельге дәлірек түзетулер енгізуге және оңтайлы шешімге тұрақтауға мүмкіндік беру үшін",
-                "Жадты пайдалануды арттыру үшін",
-                "Градиенттердің жоғалуын болдырмау үшін"
-            ],
-            correctAnswer: 1 // B
-        }
-    ]
+  quiz: [
+    {
+      question: "Егер оқыту жылдамдығы (Learning Rate) тым үлкен болса, не болады?",
+      options: [
+        "Оқыту процесі тым баяу жүреді",
+        "Модель ең төменгі нүктеден (минимумнан) аттап өтіп, тұрақталмауы мүмкін",
+        "Модель бірден артық оқытуға (overfitting) ұшырайды",
+        "Шығын функциясы теріс мәнге ие болады"
+      ],
+      correctAnswer: 1
+    },
+    {
+      question: "Адаптивті оқыту үшін әдетте қай оптимизатор ең жақсы \"бірінші таңдау\" болып саналады?",
+      options: [
+        "Zero Initialization",
+        "Adam",
+        "Mini-Batch Gradient Descent",
+        "Random Search"
+      ],
+      correctAnswer: 1
+    },
+    {
+      question: "Градиентті түсуге арналған \"Таудан түсу\" аналогиясында қадамның өлшемін не анықтайды?",
+      options: [
+        "Таудың биіктігі",
+        "Шығын функциясының атауы",
+        "Оқыту жылдамдығы (Learning Rate)",
+        "Пакет өлшемі (Batch Size)"
+      ],
+      correctAnswer: 2
+    },
+    {
+      question: "Қай оқыту жылдамдығының кестесі белгілі бір аралықтарда жылдамдықты азайтып, \"саты\" әсерін жасайды?",
+      options: [
+        "Time-Based Decay",
+        "Exponential Decay",
+        "Step Decay",
+        "Inverse Decay"
+      ],
+      correctAnswer: 2
+    },
+    {
+      question: "Неліктен біз оқыту барысында оқыту жылдамдығын жиі азайтамыз?",
+      options: [
+        "Есептеуді жылдамдату үшін",
+        "Модельге дәлірек түзетулер енгізуге және оңтайлы шешімге тұрақтауға мүмкіндік беру үшін",
+        "Жадты пайдалануды арттыру үшін",
+        "Градиенттердің жоғалуын болдырмау үшін"
+      ],
+      correctAnswer: 1
+    }
+  ]
 };
 
 export default lesson13;

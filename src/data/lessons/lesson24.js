@@ -1,8 +1,8 @@
 const lesson24 = {
-    id: 24,
-    title: "24-сабақ: Functional API",
-    description: "Sequential мен Functional API айырмашылығы, Көп кірісті модельдер және Сиамдық желілер.",
-    content: `
+  id: 24,
+  title: "24-сабақ: Functional API",
+  description: "Sequential мен Functional API айырмашылығы, Көп кірісті модельдер және Сиамдық желілер.",
+  content: `
     <h3>Оқу мақсаттары:</h3>
     <ul>
       <li>Sequential API (сызықтық стектер) мен Functional API (күрделі графиктер) арасындағы айырмашылықты түсіну.</li>
@@ -18,21 +18,17 @@ const lesson24 = {
 
     <h4>2.1. Sequential vs. Functional: Логикалық ауысу</h4>
     <p>Sequential API-де әр қабат тек өзінің алдындағы қабатқа ғана қосылады. Functional API-де әр қабат — тензорды кіріс ретінде алып, жаңа тензорды қайтаратын <em>функция</em>.</p>
-    
-    
 
     <ul>
-        <li><strong>Sequential:</strong> <code>model.add(Dense(32))</code> (Жанама байланыс)</li>
-        <li><strong>Functional:</strong> <code>x = Dense(32)(input_tensor)</code> (Нақты байланыс)</li>
+      <li><strong>Sequential:</strong> <code>model.add(Dense(32))</code> (Жанама байланыс)</li>
+      <li><strong>Functional:</strong> <code>x = Dense(32)(input_tensor)</code> (Нақты байланыс)</li>
     </ul>
     <p>Байланысты нақты басқаратындықтан, сіз бір кірісті бірнеше тармаққа бөле аласыз немесе әртүрлі қабаттарды бір нүктеде біріктіре аласыз.</p>
 
     <h4>2.2. Көп кірісті модельдерді құру</h4>
     <p>Күрделі деректер типтерін (мысалы, сандар мен кескіндерді) біріктіру үшін <code>Concatenate</code> қабаты қолданылады.</p>
-    
-    
 
-    <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 15px; border-radius: 5px; overflow-x: auto;"><code>from keras.layers import Input, Dense, Concatenate
+    <pre><code>from keras.layers import Input, Dense, Concatenate
 from keras.models import Model
 
 # 1. Кірістерді анықтау
@@ -51,9 +47,6 @@ model = Model(inputs=[input1, input2], outputs=merged)</code></pre>
 
     <h4>2.3. Ортақ қабаттар және Сиамдық желілер</h4>
     <p>Functional API-дің ең қуатты мүмкіндігі — <strong>Ортақ қабаттар (Shared Layers)</strong>. Егер сіз бір қабат нысанын бірнеше кіріске қолдансаңыз, оның салмақтары (weights) ортақ болады.</p>
-    
-    
-
     <p>Бұл <strong>Сиамдық желінің (Siamese Network)</strong> негізі. Олар екі нысанның (мысалы, екі қолтаңбаның немесе екі бет-әлпеттің) ұқсастығын тексеру үшін қолданылады. Желі А кірісінде үйренген белгілерін Б кірісіне де бірдей қолданады.</p>
 
     <h3>3. Түйін</h3>
@@ -65,74 +58,74 @@ model = Model(inputs=[input1, input2], outputs=merged)</code></pre>
     </ul>
 
     <h3>4. Ойланып көр! (Практикалық тапсырма)</h3>
-    <div style="background-color: #fff3cd; padding: 15px; border-radius: 5px; border: 1px solid #ffeeba;">
-        <p><strong>Сценарий:</strong> Сіз "Wide and Deep" моделін құрып жатырсыз. Сіз <code>input_data</code> тензорын Dense қабаты арқылы өңдеп, соңында сол нәтижені бастапқы (өңделмеген) <code>input_data</code>-мен қайта біріктіргіңіз келеді.</p>
-        <p><strong>Тапсырма:</strong> Бос орынға тиісті айнымалыларды қойыңыз:</p>
-        <pre style="background-color: #2d2d2d; color: #f8f8f2; padding: 10px; border-radius: 5px;"><code>input_data = Input(shape=(10,))
+    <div style="background-color: #fff3cd; padding: 15px; border-radius: 8px; border: 1px solid #ffeeba;">
+      <p><strong>Сценарий:</strong> Сіз "Wide and Deep" моделін құрып жатырсыз. Сіз <code>input_data</code> тензорын Dense қабаты арқылы өңдеп, соңында сол нәтижені бастапқы (өңделмеген) <code>input_data</code>-мен қайта біріктіргіңіз келеді.</p>
+      <p><strong>Тапсырма:</strong> Бос орынға тиісті айнымалыларды қойыңыз:</p>
+
+      <pre><code>input_data = Input(shape=(10,))
 deep_path = Dense(32, activation='relu')(input_data)
 
 # Біріктіру (Concatenate)
 merged = Concatenate()([_______, _______])</code></pre>
-        <details>
-            <summary style="cursor: pointer; color: #0d6efd;">Жауапты көру</summary>
-            <div style="margin-top: 10px;">
-                <p><code>[deep_path, input_data]</code> — осылайша модель әрі терең үйренген белгілерді, әрі бастапқы деректерді қатар көреді.</p>
-            </div>
-        </details>
+
+      <details>
+        <summary>Жауапты көру</summary>
+        <p><code>[deep_path, input_data]</code> — осылайша модель әрі терең үйренген белгілерді, әрі бастапқы деректерді қатар көреді.</p>
+      </details>
     </div>
   `,
-    quiz: [
-        {
-            question: "Егер сізге екі түрлі кіріс көзі бар (мысалы, сурет және мәтін) модель құру керек болса, қай API-ді таңдайсыз?",
-            options: [
-                "Sequential API",
-                "Functional API",
-                "Constant API",
-                "Linear API"
-            ],
-            correctAnswer: 1 // B
-        },
-        {
-            question: "Functional API синтаксисіндегі x = Dense(64)(input_tensor) кодында input_tensor нені білдіреді?",
-            options: [
-                "Қабаттағы нейрондар саны",
-                "Активация функциясының атауы",
-                "Осы қабатқа берілетін алдыңғы қабаттың шығысы",
-                "Модельдің оқыту жылдамдығы"
-            ],
-            correctAnswer: 2 // C
-        },
-        {
-            question: "Functional API-де іске асырылған Сиамдық желінің басты ерекшелігі қандай?",
-            options: [
-                "Оның екі түрлі шығыс қабаты бар",
-                "Ол салмақтары әртүрлі екі мүлдем тәуелсіз желіні қолданады",
-                "Ол бір ортақ қабат нысаны (ортақ салмақтар) арқылы екі кірісті өңдейді",
-                "Ол тек суреттерді өшіру үшін қолданылады"
-            ],
-            correctAnswer: 2 // C
-        },
-        {
-            question: "Concatenate қабаты Functional API-де не үшін қолданылады?",
-            options: [
-                "Желіні екі бөлек модельге бөлу үшін",
-                "Бірнеше тармақтан немесе кіріс көздерінен келген тензорларды бір тензорға біріктіру үшін",
-                "Модельдің салмақтарын нөлге теңестіру үшін",
-                "Тек қана ReLU активациясын қолдану үшін"
-            ],
-            correctAnswer: 1 // B
-        },
-        {
-            question: "ResNet немесе Inception сияқты күрделі архитектураларды құру үшін неліктен Functional API қажет?",
-            options: [
-                "Өйткені бұл модельдер тек қабаттардың қатаң сызықтық тізбегінен тұрады",
-                "Functional API тек қана Linux жүйесінде жұмыс істейді",
-                "Бұл архитектураларда қабаттар арасында \"секірулер\" (skip connections) және параллельді тармақтар бар, оны тек Functional API-мен іске асыру мүмкін",
-                "Functional API модельдің файлдық өлшемін автоматты түрде кішірейтеді"
-            ],
-            correctAnswer: 2 // C
-        }
-    ]
+  quiz: [
+    {
+      question: "Егер сізге екі түрлі кіріс көзі бар (мысалы, сурет және мәтін) модель құру керек болса, қай API-ді таңдайсыз?",
+      options: [
+        "Sequential API",
+        "Functional API",
+        "Constant API",
+        "Linear API"
+      ],
+      correctAnswer: 1
+    },
+    {
+      question: "Functional API синтаксисіндегі x = Dense(64)(input_tensor) кодында input_tensor нені білдіреді?",
+      options: [
+        "Қабаттағы нейрондар саны",
+        "Активация функциясының атауы",
+        "Осы қабатқа берілетін алдыңғы қабаттың шығысы",
+        "Модельдің оқыту жылдамдығы"
+      ],
+      correctAnswer: 2
+    },
+    {
+      question: "Functional API-де іске асырылған Сиамдық желінің басты ерекшелігі қандай?",
+      options: [
+        "Оның екі түрлі шығыс қабаты бар",
+        "Ол салмақтары әртүрлі екі мүлдем тәуелсіз желіні қолданады",
+        "Ол бір ортақ қабат нысаны (ортақ салмақтар) арқылы екі кірісті өңдейді",
+        "Ол тек суреттерді өшіру үшін қолданылады"
+      ],
+      correctAnswer: 2
+    },
+    {
+      question: "Concatenate қабаты Functional API-де не үшін қолданылады?",
+      options: [
+        "Желіні екі бөлек модельге бөлу үшін",
+        "Бірнеше тармақтан немесе кіріс көздерінен келген тензорларды бір тензорға біріктіру үшін",
+        "Модельдің салмақтарын нөлге теңестіру үшін",
+        "Тек қана ReLU активациясын қолдану үшін"
+      ],
+      correctAnswer: 1
+    },
+    {
+      question: "ResNet немесе Inception сияқты күрделі архитектураларды құру үшін неліктен Functional API қажет?",
+      options: [
+        "Өйткені бұл модельдер тек қабаттардың қатаң сызықтық тізбегінен тұрады",
+        "Functional API тек қана Linux жүйесінде жұмыс істейді",
+        "Бұл архитектураларда қабаттар арасында \"секірулер\" (skip connections) және параллельді тармақтар бар, оны тек Functional API-мен іске асыру мүмкін",
+        "Functional API модельдің файлдық өлшемін автоматты түрде кішірейтеді"
+      ],
+      correctAnswer: 2
+    }
+  ]
 };
 
 export default lesson24;

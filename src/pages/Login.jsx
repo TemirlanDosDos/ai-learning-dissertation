@@ -24,11 +24,23 @@ export default function Login({ onLogin }) {
       <div className="login-box">
         <h1>Кіру</h1>
 
+        {/* ССЫЛКА НА РЕГИСТРАЦИЮ — ВЕРХ */}
+        <p className="login-sub">
+          Аккаунт жоқ па?{" "}
+          <button
+            className="register-button"
+            onClick={() => onLogin("register")}
+          >
+            Тіркелу
+          </button>
+        </p>
+
+        {/* ФОРМА */}
         <input
           className="input"
           placeholder="Email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
 
         <input
@@ -36,7 +48,7 @@ export default function Login({ onLogin }) {
           type="password"
           placeholder="Құпия сөз"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <button className="button" onClick={login}>
@@ -45,4 +57,5 @@ export default function Login({ onLogin }) {
       </div>
     </div>
   );
+
 }

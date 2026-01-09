@@ -1,28 +1,30 @@
 import { useState } from "react";
-import aiLessons from "../data/lessons";
+import aiLessons from "../data/aiLessons";
 
 export default function AI() {
   const [currentLesson, setCurrentLesson] = useState(null);
 
   if (currentLesson) {
     return (
-      <div>
+      <div className="lesson-view">
         <h1>{currentLesson.title}</h1>
 
         <div
-          style={{ marginTop: 20 }}
+          className="lesson-content"
           dangerouslySetInnerHTML={{ __html: currentLesson.content }}
         />
 
         <button
           className="lesson-button"
           onClick={() => setCurrentLesson(null)}
+          style={{ marginTop: 24 }}
         >
           ← Артқа
         </button>
       </div>
     );
   }
+
 
   return (
     <div>
