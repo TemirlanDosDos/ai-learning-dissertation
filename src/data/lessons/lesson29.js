@@ -24,8 +24,14 @@ const lesson29 = {
       <li><strong>Интерполяция:</strong> Екі векторды қосатын түзудің бойындағы нүктелерді таңдау.</li>
       <li><strong>Декодтау:</strong> Аралық нүктелерді декодер арқылы өткізіп, жаңа кадрлар жасау.</li>
     </ul>
+    <div class="image-wrapper">
+<img src="/assets/lessons/lesson29/291.png" alt="" style="width: 50%; height: auto;" />
+</div>
 
     <pre><code>Вектор_жаңа = (1 - α) * Вектор_А + α * Вектор_В</code></pre>
+    <div class="image-wrapper">
+<img src="/assets/lessons/lesson29/292.png" alt="" style="width: 50%; height: auto;" />
+</div>
 
     <h4>2.2. Шырмалу (Entanglement) мәселесі</h4>
     <p>Стандартты VAE-де латентті өлшемдер ретсіз болады. Мысалы, 1-ші өлшем «Күлкіні» де, «Жарықты» да қатар өзгертуі мүмкін. <strong>Белгілерді бөлектеу (Disentanglement)</strong> — әрбір өлшемге тек бір тәуелсіз атрибутты (тек жыныс, тек көзілдірік немесе тек түс) сәйкестендіру.</p>

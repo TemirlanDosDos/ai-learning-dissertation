@@ -15,9 +15,11 @@ const lesson01 = {
     <h3>1. Кіріспе</h3>
     <p>Машиналық оқыту Siri мен Alexa сияқты дауыстық көмекшілерден бастап, Tesla-ның автономды көліктеріне дейінгі технологияларды қозғалысқа келтіріп, күнделікті өмірімізге етене еніп кетті. Бұл саланың айтулы жетістіктерінің бірі — DeepMind-тың AlphaGo жобасы.</p>
     <p>Негізінде, AI зерттеулерінің мақсаты — адам интеллектімен бәсекелесе алатын, ойлауға және үйренуге қабілетті машиналар жасау. Бұған қол жеткізу үшін тек код жазу жеткіліксіз; ол үшін арнайы математикалық құралдар мен есептеу қуаты қажет.</p>
-
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson1/ai-intro.png" alt="AI introduction" style="width: 50%; height: auto;" />
+    </div>
     <h3>2. Негізгі мазмұн</h3>
-
+    
     <h4>2.1. Бағдарламалық қамтамасыз ету жиынтығы (The Software Stack)</h4>
     <p>Python — машиналық оқытудың негізгі тілі. Оның күші арнайы кітапханаларында:</p>
 
@@ -25,11 +27,9 @@ const lesson01 = {
       <li><strong>NumPy және Pandas:</strong> Деректерді өңдеу мен талдауға арналған.</li>
       <li><strong>TensorFlow және Keras:</strong> Нейрондық желілерді құру мен оқытудың басты құралдары.</li>
     </ul>
-
     <div class="image-wrapper">
-      <img src="/assets/lessons/lesson1/ai-intro.png" alt="AI introduction" style="width: 50%; height: auto;" />
+      <img src="/assets/lessons/lesson1/gpu.png" alt="" style="width: 50%; height: auto;" />
     </div>
-
     <h4>2.2. Техникалық жабдықтарға қойылатын талаптар</h4>
     <p>Терең оқыту алгоритмдері үлкен есептеу қуатын қажет етеді:</p>
 
@@ -39,7 +39,9 @@ const lesson01 = {
     </ul>
 
     <blockquote>Ұсыныс: Кем дегенде 16 ГБ VRAM (бейнежад) бар карталар (мысалы, RTX 3080) тиімдірек.</blockquote>
-
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson1/python-stack.png" alt="" style="width: 50%; height: auto;" />
+    </div>
     <h4>2.3. Операциялық жүйе және жұмыс ортасы</h4>
     <ul>
       <li><strong>Linux (Ubuntu):</strong> Ең жақсы таңдау. Драйверлер мен кітапханалар өте тұрақты жұмыс істейді.</li>
@@ -60,7 +62,12 @@ const lesson01 = {
               allowfullscreen
       ></iframe>
     </div>
-
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson1/Frame%202.png" alt="" style="width: 50%; height: auto;" />
+    </div>
+    <div class="image-wrapper">
+      <img src="/assets/lessons/lesson1/Frame%203.png" alt="" style="width: 50%; height: auto;" />
+    </div>
     <h3>3. Түйін</h3>
     <ul>
       <li><strong>AI мақсаты:</strong> Ойлауға және үйренуге қабілетті жүйелер жасау.</li>

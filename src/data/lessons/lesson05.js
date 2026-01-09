@@ -18,6 +18,9 @@ const lesson05 = {
 
     <h4>2.1. Тензорларды транспонирлеу</h4>
     <p><code>reshape</code> деректердің жадыдағы орналасу ретін сақтаса, <code>transpose</code> осьтердің (axes) өздерін қайта реттейді. Бұл матрицадағы жолдар мен бағандардың орнын ауыстырумен бірдей.</p>
+    <div class="image-wrapper">
+  <img src="/assets/lessons/lesson5/transpose-matrix.png" alt="" style="width: 50%; height: auto;" />
+</div>
 
     <pre><code>import tensorflow as tf
 
@@ -30,6 +33,9 @@ transposed = tf.transpose(matrix)
 
     <h4>2.2. "Уайлдкард" [-1] қолдану</h4>
     <p>Тереңірек желілермен жұмыс істегенде, әрбір операция үшін элементтер санын қолмен есептеу қиын. TensorFlow бұл математиканы автоматтандыру үшін <code>-1</code> индексін ұсынады. Бұл индекс "қалған барлық элементтерді осы өлшемге жинақта" дегенді білдіреді.</p>
+    <div class="image-wrapper">
+  <img src="/assets/lessons/lesson5/wildcard-reshape.png" alt="" style="width: 50%; height: auto;" />
+</div>
 
     <h4>2.3. Кескін форматтары: Channel Last vs Channel First</h4>
     <p>Бұл — Конволюциялық нейрондық желілерде (CNN) ең маңызды тақырыптардың бірі.</p>
@@ -47,6 +53,9 @@ transposed = tf.transpose(matrix)
 # 2-ші ось (C) -> 0-ге ауысады
 
 output = tf.transpose(tensor, perm=[2, 0, 1])</code></pre>
+<div class="image-wrapper">
+  <img src="/assets/lessons/lesson5/channels-perm.png" alt="" style="width: 50%; height: auto;" />
+</div>
 
     <h3>3. Түйін</h3>
     <ul>
@@ -71,6 +80,9 @@ output = tf.transpose(tensor, perm=[2, 0, 1])</code></pre>
         </p>
       </details>
     </div>
+    <div class="image-wrapper">
+  <img src="/assets/lessons/lesson5/task-perm.png" alt="" style="width: 50%; height: auto;" />
+</div>
   `,
   quiz: [
     {

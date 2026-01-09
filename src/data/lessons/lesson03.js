@@ -34,6 +34,9 @@ w = tf.Variable([0.5, 0.1, 0.8])</code></pre>
 
     <h4>2.2. Математикалық амалдар (Element-wise)</h4>
     <p>TensorFlow-тағы арифметикалық амалдардың басты ерекшелігі — олар <strong>элемент бойынша</strong> орындалады. Бұл дегеніміз, амал тензорлардың сәйкес позицияларындағы сандар арасында жүреді.</p>
+    <div class="image-wrapper">
+  <img src="/assets/lessons/lesson3/element-wise.png" alt="" style="width: 50%; height: auto;" />
+</div>
 
     <p><strong>Негізгі функциялар:</strong></p>
     <ul>
@@ -49,6 +52,9 @@ w = tf.Variable([0.5, 0.1, 0.8])</code></pre>
     <blockquote>
       <strong>Мысалы:</strong> Егер сіз <code>[1, 2, 3]</code> тензорына жай ғана <code>5</code> санын (скаляр) қоссаңыз, TensorFlow 5-ті <code>[5, 5, 5]</code> түріне келтіріп, нәтижені <code>[6, 7, 8]</code> қылып шығарады.
     </blockquote>
+    <div class="image-wrapper">
+  <img src="/assets/lessons/lesson3/broadcasting.png" alt="" style="width: 50%; height: auto;" />
+</div>
 
     <h3>3. Түйін</h3>
     <ul>
@@ -77,6 +83,9 @@ w = tf.Variable([0.5, 0.1, 0.8])</code></pre>
         <p>Алдымен <strong>x</strong> пен <strong>w</strong> элемент бойынша көбейтіледі: <code>[5*2, 6*2] = [10, 12]</code>. <br/>Содан кейін шыққан нәтижеге <strong>b</strong> (скаляр сияқты) қосылады. Broadcasting осы жерде іске қосылып, 1.0 санын екі элементке де қосады: <code>[10+1, 12+1] = [11, 13]</code>.</p>
       </details>
     </div>
+    <div class="image-wrapper">
+  <img src="/assets/lessons/lesson3/neuron-calc.png" alt="" style="width: 50%; height: auto;" />
+</div>
   `,
   quiz: [
     {

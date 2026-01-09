@@ -26,10 +26,14 @@ const lesson02 = {
       <li><strong>Rank 2:</strong> Матрица (кесте).</li>
       <li><strong>Rank n:</strong> Тензор (көп өлшемді массив).</li>
     </ul>
-
+    <div class="image-wrapper">
+  <img src="/assets/lessons/lesson2/tensor-structure.png" alt="" style="width: 50%; height: auto;" />
+</div>
     <h4>2.2. Негізгі айырмашылықтар: NumPy және TensorFlow</h4>
     <p>Кодта олар ұқсас көрінгенімен, ішкі логикасы мен қолданылуында үлкен айырмашылық бар:</p>
-
+<div class="image-wrapper">
+  <img src="/assets/lessons/lesson2/numpy-vs-tf.png" alt="" style="width: 50%; height: auto;" />
+</div>
     <blockquote>
       <strong>🔒 Неліктен тензорлар өзгермейді (Immutable)?</strong><br/>
       Бұл TensorFlow-қа есептеу графигін (computation graph) алдын ала оңтайландыруға мүмкіндік береді. Деректер өзгермейтін болса, жүйе есептеулерді қатесіз және әлдеқайда жылдам жүргізеді.

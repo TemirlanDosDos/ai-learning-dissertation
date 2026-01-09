@@ -41,6 +41,13 @@ const lesson09 = {
 
     <h4>2.4. Leaky ReLU: Шешім</h4>
     <p>Өлі нейрондар мәселесін шешу үшін Leaky ReLU енгізілді. Ол теріс кірістер үшін кішкентай, нөлге тең емес градиентке рұқсат береді.</p>
+    <div class="image-wrapper">
+  <img src="/assets/lessons/lesson9/91.png" alt="" style="width: 50%; height: auto;" />
+</div>
+
+<div class="image-wrapper">
+  <img src="/assets/lessons/lesson9/92.png" alt="" style="width: 50%; height: auto;" />
+</div>
 
     <h3>3. Түйін</h3>
     <ul>

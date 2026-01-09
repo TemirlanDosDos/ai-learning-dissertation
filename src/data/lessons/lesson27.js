@@ -21,6 +21,9 @@ const lesson27 = {
 
     <ul>
       <li><strong>Транспозиция:</strong> Үйренуді жеңілдету үшін біз барлық мажорлық шығармаларды До-мажорға (C-major), ал минорлықтарды Ля-минорға (A-minor) көшіреміз.</li>
+      <div class="image-wrapper">
+<img src="/assets/lessons/lesson27/271.png" alt="" style="width: 50%; height: auto;" />
+</div>
       <li><strong>Кванттау (Quantization):</strong> Нота ұзақтықтарын стандартты өлшемдерге келтіру арқылы уақытты біркелкі етеміз.</li>
       <li><strong>Токендеу:</strong> Музыка токендер (бүтін сандар) тізбегіне айналады. Тактілерді бөлу үшін <code>|||</code>, ал шығарма шекарасы үшін <code>START/END</code> токендері қолданылады.</li>
     </ul>
@@ -32,6 +35,9 @@ const lesson27 = {
       <li><strong>Stacked LSTMs:</strong> Бірнеше LSTM қабаты қолданылғанда, аралық қабаттарда <code>return_sequences=True</code> параметрі міндетті. Ол LSTM-нің тек соңғы нәтижені емес, тізбектің әрбір қадамы үшін мән шығаруын қамтамасыз етеді.</li>
       <li><strong>TimeDistributed қабаты:</strong> Соңғы Dense қабатын <code>TimeDistributed</code> орауышына саламыз. Бұл орауыш классификацияны тізбектің әрбір уақыт қадамына тәуелсіз қолданып, әуендегі әрбір нотаны бір мезетте болжауға мүмкіндік береді.</li>
     </ul>
+    <div class="image-wrapper">
+  <img src="/assets/lessons/lesson27/272.png" alt="" style="width: 50%; height: auto;" />
+</div>
 
     <pre><code>from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import LSTM, Dense, Embedding, TimeDistributed, BatchNormalization

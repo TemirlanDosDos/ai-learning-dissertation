@@ -49,6 +49,9 @@ const lesson21 = {
       <li><strong>Жою (Dropping):</strong> Егер бос мәндер өте аз болса, <code>data.dropna()</code> арқылы оларды алып тастауға болады. Бірақ бұл әдіс деректер көлемін азайтып жіберуі мүмкін.</li>
       <li><strong>Толтыру (Imputation):</strong> Деректерді сақтап қалу үшін бос орындарды орташа немесе медианалық мәнмен толтырамыз. Бұл үшін <code>SimpleImputer</code> класы қолданылады.</li>
     </ul>
+    <div class="image-wrapper">
+  <img src="/assets/lessons/lesson21/211.png" alt="" style="width: 50%; height: auto;" />
+</div>
 
     <pre><code>from sklearn.impute import SimpleImputer
 import numpy as np
@@ -65,6 +68,9 @@ imputed_data = imputer.fit_transform(df.values)</code></pre>
       <li><strong>Әзірлеу / Валидация жиынтығы (Dev Set):</strong> Гиперпараметрлерді (мысалы, оқыту жылдамдығын) баптау үшін қолданылады.</li>
       <li><strong>Тест жиынтығы (Test Set):</strong> Модельдің соңғы сапасын тексеру үшін қолданылады.</li>
     </ul>
+    <div class="image-wrapper">
+  <img src="/assets/lessons/lesson21/212.png" alt="" style="width: 50%; height: auto;" />
+</div>
 
     <blockquote>
       <strong>Бөлу пропорциялары:</strong><br>

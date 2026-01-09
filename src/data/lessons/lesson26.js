@@ -35,7 +35,13 @@ const lesson26 = {
     <p>Нейрондық желілер кіріс деректерінің шкаласына өте сезімтал. Сондықтан:</p>
     <ol>
       <li><strong>Масштабтау (Scaling):</strong> Баға деректерін 0 мен 1 арасына сығу үшін <code>MinMaxScaler</code> қолданамыз.</li>
+      <div class="image-wrapper">
+  <img src="/assets/lessons/lesson26/261.png" alt="" style="width: 50%; height: auto;" />
+</div>
       <li><strong>Терезелеу (Windowing):</strong> Уақыттық қатарды X (өткен 30 күн) және y (31-ші күн) жұптарына бөлу.</li>
+      <div class="image-wrapper">
+  <img src="/assets/lessons/lesson26/262.png" alt="" style="width: 50%; height: auto;" />
+</div>
     </ol>
 
     <pre><code>import numpy as np

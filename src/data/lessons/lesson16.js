@@ -25,6 +25,9 @@ const lesson16 = {
       <li><strong>Rate (Коэффициент):</strong> Мысалы, 0.2 коэффициенті әрбір оқыту қадамында нейрондардың 20%-ы тасталатынын білдіреді.</li>
       <li><strong>Оқыту vs. Тестілеу:</strong> Dropout тек оқыту кезінде ғана белсенді болады. Болжам жасау кезінде желі барлық нейрондарын қолданады.</li>
     </ul>
+    <div class="image-wrapper">
+  <img src="/assets/lessons/lesson16/161.png" alt="" style="width: 50%; height: auto;" />
+</div>
 
     <pre><code>from keras.layers import Dense, Dropout
 
@@ -46,7 +49,13 @@ model.add(Dense(10, activation='softmax'))</code></pre>
 
     <ul>
       <li><strong>Max Pooling (MaxPooling2D):</strong> Терезе ішіндегі тек ең жоғары мәнді сақтайды. Ол жиектер сияқты ең айқын белгілерді ерекшелеу үшін тиімді.</li>
+      <div class="image-wrapper">
+  <img src="/assets/lessons/lesson16/162.png" alt="" style="width: 50%; height: auto;" />
+</div>
       <li><strong>Average Pooling (AveragePooling2D):</strong> Терезедегі мәндердің орташа мәнін есептейді. Бұл кескінді тегістейді (smooth) және фондық ақпаратты сақтау үшін пайдалы.</li>
+      <div class="image-wrapper">
+  <img src="/assets/lessons/lesson16/163.png" alt="" style="width: 50%; height: auto;" />
+</div>
     </ul>
 
     <h3>3. Түйін</h3>

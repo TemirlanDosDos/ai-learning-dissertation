@@ -24,6 +24,9 @@ const lesson31 = {
       <li><strong>Тура диффузия (Forward Diffusion):</strong> Латентті көрініске таза кездейсоқ статикалық шу болғанша біртіндеп Гаусс шуын қосамыз. Бұл оқыту деректерін дайындайды.</li>
       <li><strong>Кері диффузия (Reverse Diffusion):</strong> Процесті кері қайтару үшін U-Net желісін қолданамыз. Таза шудан бастап, U-Net шуды болжайды және оны кескін пайда болғанша қадам-қадаммен алып тастайды (де-ноизинг).</li>
     </ul>
+    <div class="image-wrapper">
+<img src="/assets/lessons/lesson31/311.png" alt="" style="width: 50%; height: auto;" />
+</div>
 
     <h4>2.2. Тура диффузия: Шу енгізу</h4>
     <p>Жасанды интеллектке кескіндерді түзетуді үйрету үшін, алдымен біз оларды бұзуымыз керек. Біз кескінге Гаусс шуын біртіндеп қосу үшін <strong>Шу кестесін (Noise Schedule)</strong> қолданамыз.</p>
@@ -33,6 +36,9 @@ const lesson31 = {
     <div>
       <code>x_t = sqrt(α_t) * x_0 + sqrt(1 - α_t) * ϵ</code>
     </div>
+    <div class="image-wrapper">
+<img src="/assets/lessons/lesson31/312.png" alt="" style="width: 50%; height: auto;" />
+</div>
 
     <p>Мұндағы <code>x_0</code> — бастапқы кескін, <code>ϵ</code> — Гаусс шуы, ал <code>α_t</code> — шу деңгейін бақылайтын коэффициент.</p>
 
