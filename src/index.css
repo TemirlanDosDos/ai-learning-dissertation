@@ -696,7 +696,6 @@ details > *:not(summary) {
 }
 
 .lesson-content pre::before {
-    content: "PROMPT";
     position: absolute;
     top: 10px;
     left: 16px;
