@@ -35,7 +35,6 @@ const ai01 = {
     <img
       src="/assets/aiLessons/ai01/picture1.jpg"
       alt="AI ML DL Diagram"
-      style="max-width:35%; margin:20px 0;"
     />
   </section>
 
@@ -78,7 +77,6 @@ const ai01 = {
     <img
       src="/assets/aiLessons/ai01/7.webp"
       alt="AI ML DL Diagram"
-      style="max-width:35%; margin:20px 0;"
     />
   </section>
 
@@ -97,7 +95,6 @@ const ai01 = {
     <img
       src="/assets/aiLessons/ai01/1.jpg"
       alt="AI ML DL Diagram"
-      style="max-width:20%; margin:20px 0;"
     />
   </section>
 
@@ -116,7 +113,7 @@ const ai01 = {
       <strong>Нәтиже:</strong> ChatGPT жасанды интеллектті қысқа әрі түсінікті етіп түсіндіреді.
     </p>
 
-    <img src="/assets/aiLessons/ai01/2.jpg" alt="AI ML DL Diagram" style="max-width:20%; margin:20px 0;" />
+    <img src="/assets/aiLessons/ai01/2.jpg" alt="AI ML DL Diagram" />
 
     <h4>🔹 Промпт №2. Рөл беру</h4>
 
@@ -132,7 +129,6 @@ const ai01 = {
     <img
       src="/assets/aiLessons/ai01/3.jpg"
       alt="AI ML DL Diagram"
-      style="max-width:20%; margin:20px 0;"
     />
 
     <h4>🔹 Промпт №3. Өмірлік мәселе</h4>
@@ -145,7 +141,7 @@ const ai01 = {
       ChatGPT бұл жерде кеңесші ретінде жұмыс істейді.
     </p>
 
-    <img src="/assets/aiLessons/ai01/4.jpg" alt="AI ML DL Diagram" style="max-width:20%; margin:20px 0;"/>
+    <img src="/assets/aiLessons/ai01/4.jpg" alt="AI ML DL Diagram" />
   </section>
 
   <hr/>
@@ -171,7 +167,7 @@ const ai01 = {
       </code>
     </p>
 
-    <img src="/assets/aiLessons/ai01/bad.jpg" alt="AI ML DL Diagram" style="max-width:20%; margin:20px 0;"/>
+    <img src="/assets/aiLessons/ai01/bad.jpg" alt="AI ML DL Diagram"/>
   </section>
 
   <hr/>
